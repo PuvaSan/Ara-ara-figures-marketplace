@@ -20,3 +20,11 @@ User.create!([{
 }])
 
 puts "Created #{User.count} users"
+
+anime = ["Naruto", "Bleach", "One Piece", "Spy Family", "Chainsawman", "Jujutsu Kaisen"]
+
+anime.each do |a|
+  Anime.create!({
+    title: a
+  })
+end
