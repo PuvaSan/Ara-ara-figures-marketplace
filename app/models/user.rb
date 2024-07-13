@@ -5,4 +5,6 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
   validates :username, :first_name, :lastname, :address, :bio, presense: true
   validates :username, :first_name, :lastname, :bio, uniquness: true
+  validates :bio, length: { minumum: 10}
+  validates :bio, length: { maximum: 500}
 end
