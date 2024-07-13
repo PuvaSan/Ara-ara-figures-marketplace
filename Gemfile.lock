@@ -296,6 +296,7 @@ PLATFORMS
   arm-linux
   arm-linux-musl
   arm64-darwin-22
+  arm64-darwin-23
   x86-linux
   x86-linux-musl
   x86_64-darwin
