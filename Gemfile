@@ -52,6 +52,9 @@ gem "sassc-rails"
 
 gem "devise"
 
+# this gem fixes this error "incompatible with the current version, 3.3.7" while pushing to heroku
+gem 'ffi', '1.16.3'
+
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
