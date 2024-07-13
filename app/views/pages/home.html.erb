@@ -1,2 +1,7 @@
-<h1>Pages#home <%= current_user.first_name+" "+current_user.last_name%></h1>
+<% if current_user %>
+  <h1>Pages#home <%= current_user.first_name+" "+current_user.last_name%></h1>
+<% else %>
+  <h1>hello</h1>
+<% end %>
+
 <p>Find me in app/views/pages/home.html.erb</p>
