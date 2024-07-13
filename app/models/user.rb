@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :username, :first_name, :lastname, :bio, uniqueness: true
   validates :bio, length: { minimum: 10 }
   validates :bio, length: { maximum: 500 }
+
+  has_one_attached :photo
 end

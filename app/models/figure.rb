@@ -4,4 +4,6 @@ class Figure < ApplicationRecord
   validates :name, :price, :description, presence: true
   validates :description, length: { minimum: 3 }
   validates :delivery, :pick_up, default: true
+
+  has_many_attached :photos
 end
