@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
   end
   resources :users, only: [:show]
-  resources :orders, only: [:show] do
+  resources :orders, only: [:index,:show] do
     resources :reviews, only: [:new, :create]
   end
   resources :animes, only: [:show]
