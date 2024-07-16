@@ -1,4 +1,8 @@
 class FiguresController < ApplicationController
+  def index
+    @figures = Figure.all
+  end
+
   def new
     @figure = Figure.new
   end
