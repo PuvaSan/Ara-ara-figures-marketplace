@@ -17,4 +17,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   resources :animes, only: [:show]
+
+  namespace :purchases do
+    resources :figures, only: :index
+    # equivalent to => get 'translator/bookings', to: 'translator/bookings#index'
+  end
 end
