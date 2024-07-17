@@ -201,10 +201,10 @@ figures = Figure.all
 users.each do |user|
   figures.sample(3).each do |figure|
     Order.create!(
-      user: user,
+      buyer: user,
       figure: figure,
-      mode_of_delivery: "Pick-up",
-      status: "Pending"
+      mode_of_delivery: ["pickup", "delivery"].sample,
+      status: ["pending", "completed", "cancelled"].sample
     )
   end
 end
