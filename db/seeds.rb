@@ -53,32 +53,34 @@ animes.each do |a|
 end
 
 figures = [{
-  user: User.all[0],
+  user: User.first,
   name: "Itachi Uchiha KRGNPLE",
   description: "KRGNPLE Toy Model Decoration Cartoon Figure Action Figure Naruto Teki Uchiha Itachi (Design: Itachi Uchiha - Type A, 1 Piece)",
   price: 5999,
-  anime: Anime.all[0],
+  anime: Anime.first,
   pick_up: false,
   delivery: false,
-  
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218502/oxolzetqz5gldhwez6tp.jpg"
   },
   {
-  user: User.all[0],
+  user: User.first,
   name: "Gear 5 Luffy",
   description: "Banpresto One Piece DXF THE GRANDLINE SERIES EXTRA MONKEY D. LUFFY",
   price: 4500,
   anime: Anime.all[2],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218506/tuceozpptymsdtq1wzg2.jpg"
   },
   {
-  user: User.all[0],
+  user: User.first,
   name: "Nami-Swan :heart:",
   description: "Standing Bikini Girl Series Nami Girl Figure Garage Kit Scene Pedestal Figure Collection Grade Handmade Painted Finished Product Made by POLYSTONE GK Craft Collection Assembly Statue Ornament Model Toys [Parallel Import]",
   price: 4500,
   anime: Anime.all[2],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218350/dldpfnoptkcri2hnk5gn.jpg"
   },
   {
   user: User.all[1],
@@ -87,7 +89,8 @@ figures = [{
   price: 6000,
   anime: Anime.all[3],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218352/wzmskhi2lyvgkehg80x0.jpg"
   },
   {
   user: User.all[1],
@@ -96,16 +99,18 @@ figures = [{
   price: 5999,
   anime: Anime.all[4],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218353/pfsgzne0wxj8natjgmav.jpg"
   },
   {
   user: User.all[1],
   name: "Naruto - Naruto Fukai Shuriken",
   description: "Figuarts Zero Naruto Shippuden (Super Fierce Battle), Naruto Uzumaki - Senpo & Fukai Shuriken, Approx. 9.4 inches (240 mm), PVC & ABS, Painted Finished",
   price: 4500,
-  anime: Anime.all[0],
+  anime: Anime.first,
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218355/lfrmk5xxoif092skatho.jpg"
   },
   {
   user: User.all[2],
@@ -114,7 +119,8 @@ figures = [{
   price: 9500,
   anime: Anime.all[1],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218356/dzk3sbj2b2lfaotqodqy.jpg"
   },
   {
   user: User.all[2],
@@ -123,7 +129,8 @@ figures = [{
   price: 2000,
   anime: Anime.all[1],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218358/osfitn6f0wy9fw2rbxpf.jpg"
   },
   {
   user: User.all[2],
@@ -132,7 +139,8 @@ figures = [{
   price: 3000,
   anime: Anime.all[5],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218359/tgutkgqjgcjxrs2efnjd.jpg"
   },
   {
   user: User.all[3],
@@ -141,7 +149,8 @@ figures = [{
   price: 42761,
   anime: Anime.all[2],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218361/ibps0tmthrab2jcqp3jf.jpg"
   },
   {
   user: User.all[3],
@@ -150,33 +159,30 @@ figures = [{
   price: 3888,
   anime: Anime.all[2],
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218362/lpckx9cg1wbmlddtfpwu.jpg"
   },
   {
   user: User.all[3],
   name: "Naruto - Jiraiya",
   description: "Naruto Shippuden Banpresto Figure Colosseum Zoukei Ninja World War, Jiraiya",
   price: 2734,
-  anime: Anime.all[0],
+  anime: Anime.first,
   pick_up: false,
-  delivery: false
+  delivery: false,
+  image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218364/n60yiopknjvnpaixqhba.jpg"
   }
-])
-images = [
-  "https://m.media-amazon.com/images/I/71cEF+seNxL._AC_SX569_.jpg",
-  "https://m.media-amazon.com/images/I/51mF21AawCL._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/71J098CfnaL._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/618EwFsd6tL._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/71rBSAmMlQL._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/61slDanqalL._AC_SY879_.jpg",
-  "https://m.media-amazon.com/images/I/61HkGdyxa2L._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/61bGSztYcaL._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/51dCfd0Zy4L._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/61MkRAmJIZL._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/61J0OuTFLYL._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/61-7SfBYftL._AC_SX425_.jpg"
 ]
 
-images.each_with_index do |image, index|
-  Figure.all[index].photos.attach(io: URI.open(image), filename: "figure_#{index}.jpg")
+figures.each do |figure|
+  Figure.create!(
+    user: figure[:user],
+    name: figure[:name],
+    description: figure[:description],
+    price: figure[:price],
+    anime: figure[:anime],
+    pick_up: figure[:pick_up],
+    delivery: figure[:delivery]
+  )
+  Figure.last.photos.attach(io: URI.open(figure[:image]), filename: "figure_#{Figure.last.id}.jpg")
 end
