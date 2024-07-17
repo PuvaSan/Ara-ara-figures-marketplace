@@ -44,6 +44,8 @@ User.create!([{
   address: "Tokyo"
 }])
 
+puts "created #{User.count} users"
+
 animes = ["Naruto", "Bleach", "One Piece", "Spy Family", "Chainsawman", "Jujutsu Kaisen"]
 
 animes.each do |a|
@@ -51,6 +53,8 @@ animes.each do |a|
     title: a
   })
 end
+
+puts "created #{Anime.count} animes"
 
 figures = [{
   user: User.first,
@@ -186,3 +190,5 @@ figures.each do |figure|
   )
   Figure.last.photos.attach(io: URI.open(figure[:image]), filename: "figure_#{Figure.last.id}.jpg")
 end
+
+puts "created #{Figure.count} figures"
