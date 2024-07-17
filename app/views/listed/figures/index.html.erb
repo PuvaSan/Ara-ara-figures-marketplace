@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-3 p-3">
+      <ul>
+        <li><%= link_to "Sale Orders", orders_path  %></li>
+        <li>Products</li>
+        <li>Reviews</li>
+      </ul>
+    </div>
+    <div class=" col-9">
+      <%= render "order_card" %>
+    </div>
+  </div>
+</div>

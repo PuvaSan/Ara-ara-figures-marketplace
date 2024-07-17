@@ -1,0 +1,12 @@
+<h1>Orders</h1>
+<div class="card p-3 m-3">
+  <% @orders.each do |order| %>
+    <p class="card-title  text-center">order number : <%= order.id %></p>
+    <p class="card-text">buyer username: <%= order.buyer.username %></p>
+    <p class="card-text">Status: <%= order.status %></p>
+    <p class="card-text">anime figure from: <%= order.figure.anime.title %></p>
+    <p class="card-text">figure name: <%= order.figure.name %></p>
+    <p class="card-text">figure price: <%= order.figure.price %></p>
+    <p class="card-text">delivery type: <%= order.mode_of_delivery %></p>
+  <% end %>
+</div>

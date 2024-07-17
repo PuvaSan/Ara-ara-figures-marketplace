@@ -23,4 +23,8 @@ Rails.application.routes.draw do
     resources :figures, only: :index
     # equivalent to => get 'translator/bookings', to: 'translator/bookings#index'
   end
+
+  namespace :listed do
+    resources :figures, only: :index
+  end
 end
