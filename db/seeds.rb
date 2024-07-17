@@ -192,3 +192,21 @@ figures.each do |figure|
 end
 
 puts "created #{Figure.count} figures"
+
+puts "creating orders"
+
+users = User.all
+figures = Figure.all
+
+users.each do |user|
+  figures.sample(3).each do |figure|
+    Order.create!(
+      user: user,
+      figure: figure,
+      mode_of_delivery: "Pick-up",
+      status: "Pending"
+    )
+  end
+end
+
+puts "created #{Order.count} orders"
