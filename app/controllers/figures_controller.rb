@@ -23,6 +23,6 @@ class FiguresController < ApplicationController
   private
 
   def figure_params
-    params.require(:figure).permit(:name, :description, :price, :anime_id, :pick_up, :delivery, :photos)
+    params.require(:figure).permit(:name, :description, :price, :anime_id, :pick_up, :delivery, photos: [])
   end
 end
