@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/orders', to: "orders#index"
   devise_for :users
   root to: "figures#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,8 +14,13 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
   end
   resources :users, only: [:show]
-  resources :orders, only: [:show] do
+  resources :orders, only: [:index,:show] do
     resources :reviews, only: [:new, :create]
   end
   resources :animes, only: [:show]
+
+  namespace :purchases do
+    resources :figures, only: :index
+    # equivalent to => get 'translator/bookings', to: 'translator/bookings#index'
+  end
 end
