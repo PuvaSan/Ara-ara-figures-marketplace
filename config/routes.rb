@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'orders/index'
   devise_for :users
   root to: "figures#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
