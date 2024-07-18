@@ -62,7 +62,8 @@ figures = [{
   description: "KRGNPLE Toy Model Decoration Cartoon Figure Action Figure Naruto Teki Uchiha Itachi (Design: Itachi Uchiha - Type A, 1 Piece)",
   price: 5999,
   anime: Anime.first,
-  pick_up: false,
+  pick_up: true,
+  pick_up_location: "Tokyo station",
   delivery: false,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218502/oxolzetqz5gldhwez6tp.jpg"
   },
@@ -73,7 +74,7 @@ figures = [{
   price: 4500,
   anime: Anime.all[2],
   pick_up: false,
-  delivery: false,
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218506/tuceozpptymsdtq1wzg2.jpg"
   },
   {
@@ -82,8 +83,9 @@ figures = [{
   description: "Standing Bikini Girl Series Nami Girl Figure Garage Kit Scene Pedestal Figure Collection Grade Handmade Painted Finished Product Made by POLYSTONE GK Craft Collection Assembly Statue Ornament Model Toys [Parallel Import]",
   price: 4500,
   anime: Anime.all[2],
-  pick_up: false,
-  delivery: false,
+  pick_up: true,
+  pick_up_location: "Akihabara station",
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218350/dldpfnoptkcri2hnk5gn.jpg"
   },
   {
@@ -92,8 +94,9 @@ figures = [{
   description: "Figuarts Zero SPY x FAMILY Anya Forger & Bond Forger - Missho Konpurito! Approx. 3.9 inches (100 mm), PVC & ABS, Painted Finished Figure",
   price: 6000,
   anime: Anime.all[3],
-  pick_up: false,
-  delivery: false,
+  pick_up: true,
+  pick_up_location: "Meguro station",
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218352/wzmskhi2lyvgkehg80x0.jpg"
   },
   {
@@ -103,7 +106,7 @@ figures = [{
   price: 5999,
   anime: Anime.all[4],
   pick_up: false,
-  delivery: false,
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218353/pfsgzne0wxj8natjgmav.jpg"
   },
   {
@@ -113,7 +116,7 @@ figures = [{
   price: 4500,
   anime: Anime.first,
   pick_up: false,
-  delivery: false,
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218355/lfrmk5xxoif092skatho.jpg"
   },
   {
@@ -122,8 +125,9 @@ figures = [{
   description: "BANDAI SPIRITS Figuarts Zero Bleach Millennial Blood War: Kokutan Ichigo Kurosaki - Thousand Years Blood War: Approx. 8.7 inches (220 mm), PVC & ABS Pre-painted Complete Figure",
   price: 9500,
   anime: Anime.all[1],
-  pick_up: false,
-  delivery: false,
+  pick_up: true,
+  pick_up_location: "Ueno station"
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218356/dzk3sbj2b2lfaotqodqy.jpg"
   },
   {
@@ -132,8 +136,9 @@ figures = [{
   description: "Banpresto Bleach Relax Time Orihime Inoue",
   price: 2000,
   anime: Anime.all[1],
-  pick_up: false,
-  delivery: false,
+  pick_up: true,
+  pick_up_location: "Shibuya station",
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218358/osfitn6f0wy9fw2rbxpf.jpg"
   },
   {
@@ -143,7 +148,7 @@ figures = [{
   price: 3000,
   anime: Anime.all[5],
   pick_up: false,
-  delivery: false,
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218359/tgutkgqjgcjxrs2efnjd.jpg"
   },
   {
@@ -152,8 +157,9 @@ figures = [{
   description: "Portrait.Of.Pirates One Piece “LIMITED EDITION” NAMI Ver.BB_SP",
   price: 42761,
   anime: Anime.all[2],
-  pick_up: false,
-  delivery: false,
+  pick_up: true,
+  pick_up_location: "Shinjuku station",
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218361/ibps0tmthrab2jcqp3jf.jpg"
   },
   {
@@ -162,8 +168,9 @@ figures = [{
   description: "Luffy Gear 5 Nika Figure, One Piece King of ARTIST THE MONKEY.D.LUFFY GEAR5 II, Luffy Figure, Gear 5, Nika, Official Figure Merchandise",
   price: 3888,
   anime: Anime.all[2],
-  pick_up: false,
-  delivery: false,
+  pick_up: true,
+  pick_up_location: "Shinagawa station",
+  delivery:true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218362/lpckx9cg1wbmlddtfpwu.jpg"
   },
   {
@@ -173,7 +180,7 @@ figures = [{
   price: 2734,
   anime: Anime.first,
   pick_up: false,
-  delivery: false,
+  delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218364/n60yiopknjvnpaixqhba.jpg"
   }
 ]
