@@ -9,10 +9,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
-    order.figure = Figure.find(params[:figure_id])
-    order.buyer = current_user
-    if order.save
+    @order = Order.new(order_params)
+    @order.figure = Figure.find(params[:figure_id])
+    @order.buyer = current_user
+    if @order.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
