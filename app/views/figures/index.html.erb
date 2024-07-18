@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<% @animes.each do |anime| %>
-<%= render 'shared/anime-category', anime: anime %>
-<% end %>
-
-<%= render 'shared/card-product' %>
-=======
 <div class="container">
   <h1>All Figures</h1>
   <div class="row">
@@ -16,10 +9,10 @@
             <h5 class="card-title"><%= figure.name %></h5>
             <p class="card-text">Price: <%= figure.price %></p>
             <p class="card-text">Description: <%= figure.description%></p>
+            <%= link_to 'Place Order', new_figure_order_path(figure), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
->>>>>>> a6d777bf72a6248268e09e309464ea5f32766da4

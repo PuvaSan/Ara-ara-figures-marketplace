@@ -1,20 +1,16 @@
 class FiguresController < ApplicationController
-  skip_before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: :index
 
   def index
     @figures = Figure.all
     @animes = Anime.all
-  # Remove the extra 'end' keyword
+  end
 
   def new
     @figure = Figure.new
-  # Remove the extra 'end' keyword
+  end
 
   def create
-     @figure = Figure.create(figure_params)
-   end
-
     @figure = Figure.create(figure_params)
     @figure.user = current_user
     if @figure.save
@@ -28,8 +24,6 @@ class FiguresController < ApplicationController
   private
 
   def figure_params
-     params.require(:figure).permit()
-   end
     params.require(:figure).permit(:name, :description, :price, :anime_id, :pick_up, :delivery, photos: [])
   end
 end
