@@ -9,7 +9,9 @@
             <h5 class="card-title"><%= figure.name %></h5>
             <p class="card-text">Price: <%= figure.price %></p>
             <p class="card-text">Description: <%= figure.description%></p>
-            <%= link_to 'Place Order', new_figure_order_path(figure), class: 'btn btn-primary' %>
+            <% unless figure.user == current_user %>
+              <%= link_to 'Place Order', new_figure_order_path(figure), class: 'btn btn-primary' %>
+            <% end %>
           </div>
         </div>
       </div>
