@@ -1,6 +1,7 @@
 class Figure < ApplicationRecord
   belongs_to :user
   belongs_to :anime
+  has_many :orders
 
   #validations
   validates :name, presence: true, length: { maximum: 100 }
