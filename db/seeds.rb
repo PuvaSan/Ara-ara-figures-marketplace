@@ -126,7 +126,7 @@ figures = [{
   price: 9500,
   anime: Anime.all[1],
   pick_up: true,
-  pick_up_location: "Ueno station"
+  pick_up_location: "Ueno station",
   delivery: true,
   image: "https://res.cloudinary.com/dzfjdlafz/image/upload/v1721218356/dzk3sbj2b2lfaotqodqy.jpg"
   },
@@ -193,6 +193,7 @@ figures.each do |figure|
     price: figure[:price],
     anime: figure[:anime],
     pick_up: figure[:pick_up],
+    pick_up_location: figure[:pick_up_location],
     delivery: figure[:delivery]
   )
   Figure.last.photos.attach(io: URI.open(figure[:image]), filename: "figure_#{Figure.last.id}.jpg")
@@ -207,12 +208,14 @@ figures = Figure.all
 
 users.each do |user|
   figures.sample(3).each do |figure|
-    Order.create!(
-      buyer: user,
-      figure: figure,
-      mode_of_delivery: ["pickup", "delivery"].sample,
-      status: ["pending", "completed", "cancelled"].sample
-    )
+    if figure.orders.empty? || figure.orders.all? { |order| order.status == "cancelled"}
+      Order.create!(
+        buyer: user,
+        figure: figure,
+        mode_of_delivery: ["pickup", "delivery"].sample,
+        status: ["pending", "completed", "cancelled"].sample
+      )
+    end
   end
 end
 
