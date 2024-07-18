@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Products</h1>
+  <% @user_figures.each do |figure| %>
+    <div class="p-3 m-3 col-9 row">
+      <%= image_tag figure.photos.first, class: "col-3 rounded" if figure.photos.any? %>
+      <div class="col-6">
+        <p class="card-title">figure number : <%= figure.id %></p>
+        <p class="card-text">anime figure from: <%= figure.anime.title %></p>
+        <p class="card-text">figure name: <%= figure.name %></p>
+        <p class="card-text">seller name: <%= figure.user.username %> ID: <%= figure.user.id %> </p>
+        <p class="card-text">figure price: <%= figure.price %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
