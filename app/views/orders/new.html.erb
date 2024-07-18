@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Purchase <%= @figure.name %></h1>
+
+    <%= if @figure.orders.all? { |order| order.status == "cancelled"} || !(figure.order) %>
+      <% mode_of_delivery_options = [] %>
+      <% mode_of_delivery.push("pick_up") if @figure.pick_up == true %>
+      <% mode_of_delivery.push("delivery") if @figure.delivery == true %>
+
+      <%= simple_form_for @order do |f| %>
+        <%= f.input :figure_id, as: :hidden, input_html: { value: @figure.id } %>
+        <%= f.input :buyer_id, as: :hidden, input_html: { value: current_user.id } %>
+        <%= f.input :mode_of_delivery, collection: mode_of_delivery_options, input_html: { multiple: true } %>
+        <%= f.submit %>
+      <% end %>
+
+    <% else %>
+      <h3>Sorry, this figure is currently on hold. Come back again, later</h3>
+    <% end %>
+</div>
