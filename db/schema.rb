@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_13_070742) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_18_071920) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_13_070742) do
     t.boolean "delivery"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pick_up_location"
     t.index ["anime_id"], name: "index_figures_on_anime_id"
     t.index ["user_id"], name: "index_figures_on_user_id"
   end
@@ -66,7 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_13_070742) do
     t.bigint "figure_id", null: false
     t.string "mode_of_delivery"
     t.bigint "buyer_id", null: false
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
