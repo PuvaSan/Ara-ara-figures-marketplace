@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(order_params)
-    @order.buyer = current_user
     if @order.save
       redirect_to root_path
     else
@@ -21,6 +20,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:figure_id, :pick_up, :delivery)
+    params.require(:order).permit(:figure_id, :pick_up, :delivery, :buyer_id)
   end
 end
