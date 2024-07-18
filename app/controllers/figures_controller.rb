@@ -3,6 +3,7 @@ class FiguresController < ApplicationController
 
   def index
     @figures = Figure.all
+    @animes = Anime.all
   end
 
   def new
