@@ -1,18 +1,15 @@
 <div class="container">
   <h1>New Order</h1>
     <% available_options = [] %>
-    <% available_options << ["pickup", "Pick Up"] if @figure.pick_up %>
-    <% available_options << ["delivery", "Delivery"] if @figure.delivery %>
+    <% available_options << "Pick Up" if @figure.pick_up %>
+    <% available_options << "Delivery" if @figure.delivery %>
 
     <% if @figure.orders.empty? || @figure.orders.all? { |order| order.status == "cancelled"} %>
 
       <%= simple_form_for [@figure, @order] do |f| %>
         <label for="figure_name">Figure</label>
         <input id="figure_name" class="form-control mb-3" type="text" placeholder="<%= @figure.name %>" readonly>
-        <div class="d-flex flex-column">
-          <label for="">Mode of delivery:</label>
-          <%= f.collection_radio_buttons :mode_of_delivery, available_options, :first, :last %>
-        </div>
+        <%= f.input :mode_of_delivery, as: :radio_buttons, collection: available_options %>
 
         <%= f.submit 'Create order', class: "btn btn-primary mt-3" %>
       <% end %>
