@@ -10,9 +10,13 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.create(order_params)
+    @figure = Figure.find(params[:figure_id])
+    @order.figure = @figure
+    @order.buyer = current_user
     if @order.save
       redirect_to root_path
     else
+      @order = Order.new
       render :new, status: :unprocessable_entity
     end
   end
@@ -20,6 +24,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:figure_id, :pick_up, :delivery, :buyer_id)
+    params.require(:order).permit(:mode_of_delivery)
   end
 end
