@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Reviews</h1>
+  <% @user_reviews.each do |review| %>
+    <div class="p-3 m-3 col-9 row">
+      <%= image_tag review.order.figure.photos.first, class: "col-3 rounded" if review.order.figure.photos.any? %>
+      <div class="col-6">
+        <p class="card-title">order number : <%= review.order.id %></p>
+        <p class="card-text">comment: "<%= review.comment %>"</p>
+        <p class="card-text">rating: <%= review.rating %></p>
+        <p class="card-text">buyer name: <%= review.order.buyer.username %> ID: <%= review.order.buyer_id %> </p>
+      </div>
+    </div>
+  <% end %>
+</div>
