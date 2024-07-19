@@ -220,3 +220,33 @@ users.each do |user|
 end
 
 puts "created #{Order.count} orders"
+puts "creating reviews"
+
+# User.all.each do |user|
+#   puts user
+#   Order.all.each do |order|
+#     puts order
+#     Review.create!(
+#       reviewee: order.figure.user,
+#       reviewer: user,
+#       order: order,
+#       rating: rand(1..5),
+#       comment: ["Great seller, would buy from again!", "Item was as described, would recommend!", "Fast delivery, would buy from again!"].sample
+#     )
+#   end
+# end
+
+Order.all.each do |order|
+  unless order.buyer == order.figure.user
+    Review.create!(
+      reviewee: order.figure.user,
+      reviewer: order.buyer,
+      order: order,
+      rating: rand(1..5),
+      comment: ["Great buyer, would sell to again!", "Fast payment, would sell to again!", "Pleasure to deal with, would recommend!"].sample
+    )
+  end
+  # puts "#{Review.count} review"
+end
+
+puts "created #{Review.count} reviews"
