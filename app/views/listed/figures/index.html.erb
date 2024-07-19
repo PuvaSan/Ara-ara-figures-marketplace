@@ -2,15 +2,15 @@
   <div class="row">
     <div class="card col-3 p-3">
       <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-link"><%= link_to "Sale Orders", listed_figures_path  %></li>
-        <li data-action="click->toggle#fire" class="nav-link">Products</li>
+        <li data-action="click->toggle#order" class="nav-link">Sale Orders</li>
+        <li data-action="click->toggle#product" class="nav-link">Products</li>
         <li class="nav-link">Reviews</li>
       </ul>
     </div>
-    <div data-toggle-target="togglableElement" class=" col-9">
+    <div data-toggle-target="orderButton" class=" col-9">
       <%= render "order_list" %>
     </div>
-    <div class=" col-9">
+    <div data-toggle-target="productButton" class=" col-9">
       <%= render "product_list" %>
     </div>
   </div>
