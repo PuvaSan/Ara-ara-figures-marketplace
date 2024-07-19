@@ -18,6 +18,5 @@ class Listed::FiguresController < ApplicationController
     @user_reviews = Review.all.select do |review|
       review.reviewee.id == current_user.id
     end
-
   end
 end
