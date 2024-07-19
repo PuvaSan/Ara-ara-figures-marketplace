@@ -5,13 +5,9 @@
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
-            <%= image_tag figure.photos.first, size: "200x200" if figure.photos.any? %>
             <h5 class="card-title"><%= figure.name %></h5>
             <p class="card-text">Price: <%= figure.price %></p>
             <p class="card-text">Description: <%= figure.description%></p>
-            <% unless figure.user == current_user %>
-              <%= link_to 'Place Order', new_figure_order_path(figure), class: 'btn btn-primary' %>
-            <% end %>
           </div>
         </div>
       </div>

@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Add a Review for <%= @order.figure.user.username %></h1>
+    <%= simple_form_for [@order, @review] do |f| %>
+      <%= f.input :comment%>
+      <%= f.input :rating %>
+      <%= f.submit %>
+    <% end %>
+</div>

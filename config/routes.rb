@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   resources :animes, only: [:show]
+  get '/reviews', to: "reviews#index"
 
   namespace :purchases do
     resources :figures, only: :index

@@ -14,5 +14,9 @@ class Listed::FiguresController < ApplicationController
       figure.user.id == current_user.id
     end
 
+    # collects all reviews that match the current logged in user's ID for display
+    @user_reviews = Review.all.select do |review|
+      review.reviewee.id == current_user.id
+    end
   end
 end

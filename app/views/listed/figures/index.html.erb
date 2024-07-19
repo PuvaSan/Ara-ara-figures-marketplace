@@ -1,17 +1,20 @@
-<div class="container">
+<div class="container" data-controller="toggle">
   <div class="row">
     <div class="card col-3 p-3">
-      <ul>
-        <li><%= link_to "Sale Orders", listed_figures_path  %></li>
-        <li>Products</li>
-        <li>Reviews</li>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li data-action="click->toggle#order" class="nav-link">Sale Orders</li>
+        <li data-action="click->toggle#product" class="nav-link">Products</li>
+        <li data-action="click->toggle#review" class="nav-link">Reviews</li>
       </ul>
     </div>
-    <div class=" col-9">
+    <div data-toggle-target="orderButton" class=" col-9">
       <%= render "order_list" %>
     </div>
-    <div class=" col-9">
+    <div data-toggle-target="productButton" class=" col-9">
       <%= render "product_list" %>
+    </div>
+    <div data-toggle-target="reviewButton" class=" col-9">
+      <%= render "review_list" %>
     </div>
   </div>
 </div>
