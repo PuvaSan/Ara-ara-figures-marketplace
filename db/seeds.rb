@@ -212,7 +212,7 @@ users.each do |user|
       Order.create!(
         buyer: user,
         figure: figure,
-        mode_of_delivery: ["pickup", "delivery"].sample,
+        mode_of_delivery: ["Pick Up", "Delivery"].sample,
         status: ["pending", "completed", "cancelled"].sample
       )
     end
