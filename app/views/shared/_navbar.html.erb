@@ -6,15 +6,15 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="d-flex justify-content-center">
+      <input type="text" id="word" name="word" class="form-control" placeholder="Anime Title" hint="">
+      <input type="anime_search" value="Search" class="btn btn-primary me-4 btn-sm">
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
             <div class="anime_search">
-              <div class="d-flex">
-                <input type="text" id="word" name="word" class="form-control" placeholder="Anime Title" hint="">
-                <input type="anime_search" value="Search" class="btn btn-primary me-4 btn-sm">
-              </div>
             </div>
           </li>
           <li class="nav-item active">
