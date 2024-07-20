@@ -6,7 +6,7 @@
     <div class="d-flex">
       <div class="image-container me-3" style="background-image: url(<%= figure.photos.any? ? cl_image_path(figure.photos.first.key) : image_path('logo.png')%>)"></div>
       <div class="figure-info">
-        <p class="mt-1"><%= figure.description %></p>
+        <p><%= figure.description %></p>
         <p>¥ <%= figure.price %></p>
         <p class="m-0"><strong>Delivery options:</strong></p>
         <% if figure.pick_up %>
