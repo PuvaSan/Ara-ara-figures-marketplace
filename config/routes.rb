@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   namespace :listed do
     resources :figures, only: :index
   end
+
+  patch "orders/:id", to: "orders#update", as: :update_order
 end
