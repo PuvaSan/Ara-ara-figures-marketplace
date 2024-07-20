@@ -1,0 +1,28 @@
+.card-body {
+  height: 500px;
+  background-color: #B8EAEC;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+body {
+  background-color: #e671b1;
+
+}
+
+.card-image-container {
+
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-image-container img {
+  height: 200px;
+  width: 200px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
