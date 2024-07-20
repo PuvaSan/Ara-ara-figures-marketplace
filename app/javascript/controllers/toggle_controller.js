@@ -9,6 +9,8 @@ export default class extends Controller {
     console.log("Hello, Stimulus!", this.element);
     this.productButtonTarget.classList.add("d-none");
     this.reviewButtonTarget.classList.add("d-none");
+
+    this.orderButtonTarget.classList.add("active");
   }
 
   // hides other list except product list when product button is clicked
@@ -16,6 +18,10 @@ export default class extends Controller {
     this.orderButtonTarget.classList.add("d-none");
     this.productButtonTarget.classList.remove("d-none");
     this.reviewButtonTarget.classList.add("d-none");
+
+    this.productButtonTarget.classList.toggle("active");
+    this.orderButtonTarget.classList.remove("active");
+    this.reviewButtonTarget.classList.remove("active");
   }
 
   // hides other list except order list when order button is clicked
@@ -23,6 +29,10 @@ export default class extends Controller {
     this.orderButtonTarget.classList.remove("d-none");
     this.productButtonTarget.classList.add("d-none");
     this.reviewButtonTarget.classList.add("d-none");
+
+    this.orderButtonTarget.classList.add("active");
+    this.productButtonTarget.classList.remove("active");
+    this.reviewButtonTarget.classList.remove("active");
   }
 
   // this hides other list except review list when the review button is clicked
@@ -30,5 +40,9 @@ export default class extends Controller {
     this.orderButtonTarget.classList.add("d-none");
     this.productButtonTarget.classList.add("d-none");
     this.reviewButtonTarget.classList.remove("d-none");
+
+    this.reviewButtonTarget.classList.add("active");
+    this.productButtonTarget.classList.remove("active");
+    this.orderButtonTarget.classList.remove("active");
   }
 }
