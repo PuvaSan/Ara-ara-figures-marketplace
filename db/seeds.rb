@@ -46,12 +46,37 @@ User.create!([{
 
 puts "created #{User.count} users"
 
-animes = ["Naruto", "Bleach", "One Piece", "Spy Family", "Chainsawman", "Jujutsu Kaisen"]
+animes = [
+  {
+    title: "Naruto",
+    image: "http://res.cloudinary.com/dckq0zged/image/upload/v1721448470/ewi1dlyhkor4qunbbwpi.jpg"
+  },
+  {
+    title: "Bleach",
+    image: "http://res.cloudinary.com/dckq0zged/image/upload/v1721448290/bwahgpzzw8pdyxbdewhl.png"
+  },
+  {
+    title: "One Piece",
+    image: "http://res.cloudinary.com/dckq0zged/image/upload/v1721448507/viu1bui4o8m3ld3twkf6.avif"
+  },
+  {
+    title: "Spy Family",
+    image: "http://res.cloudinary.com/dckq0zged/image/upload/v1721448543/tvjgbbhdordu3qjnz7oj.jpg"
+  },
+  {
+    title: "Chainsawman",
+    image: "http://res.cloudinary.com/dckq0zged/image/upload/v1721448342/uxf02vihjef4yx15icrs.jpg"
+  },
+  {
+    title: "Jujutsu Kaisen",
+    image: "http://res.cloudinary.com/dckq0zged/image/upload/v1721448409/alnarqzidrdc2izubw4s.jpg"
+  }]
 
 animes.each do |a|
   Anime.create!({
-    title: a
+    title: a[:title]
   })
+  Anime.last.photo.attach(io: URI.open(a[:image]), filename: "anime_#{a[:title]}.jpg")
 end
 
 puts "created #{Anime.count} animes"
@@ -212,7 +237,7 @@ users.each do |user|
       Order.create!(
         buyer: user,
         figure: figure,
-        mode_of_delivery: ["Pick Up", "Delivery"].sample,
+        mode_of_delivery: ["pickup", "delivery"].sample,
         status: ["pending", "completed", "cancelled"].sample
       )
     end
