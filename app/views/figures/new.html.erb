@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container w-50 shadow-sm p-3 mb-5 bg-white rounded">
   <%= simple_form_for @figure do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
@@ -10,6 +10,6 @@
     </div>
     <%= f.input :pick_up_location%>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit %>
+    <%= f.submit "Add Figure" %>
   <% end %>
 </div>
