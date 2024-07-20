@@ -17,7 +17,13 @@
         <% end %>
         <div class="d-flex justify-content-between">
           <p class="text-muted"><em>Posted at <%= figure.created_at %></em></p>
-          <%= link_to "Edit", edit_figure_path(figure), class: "btn me-3"%>
+          <% if figure.orders.any? { |order| order.status == 'pending' } %>
+            <p><em>awaiting shipment</em></p>
+          <% elsif figure.orders.any? { |order| order.status == 'completed' }  %>
+            <p><em>shipped</em></p>
+          <% else %>
+            <%= link_to "Edit", edit_figure_path(figure), class: "btn me-3"%>
+          <% end %>
         </div>
       </div>
     </div>
