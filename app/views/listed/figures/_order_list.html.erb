@@ -1,5 +1,5 @@
 <% @order_sales.each do |order| %>
-  <div class="card p-3 mb-3 mx-3">
+  <div class="card p-3 mb-3">
     <div class="d-flex">
       <p class="card-title flex-grow-1">Order ID: #<%= order.id %></p>
       <% if order.status == 'pending' %>

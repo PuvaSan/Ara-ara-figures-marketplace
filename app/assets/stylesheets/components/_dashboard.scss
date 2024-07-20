@@ -18,10 +18,31 @@
 
 .order-container {
   div {
-    border-radius: 16px;;
+    border-radius: 16px;
+    background-color: white;
   }
 
   .card-title {
     font-weight: bold;
+  }
+}
+
+.product-container {
+  .btn {
+    background-color: #65558F;
+    border-radius: 12px;
+    color: white;
+  }
+
+  .figure-card {
+    .image-container {
+      min-width: 200px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    border-radius: 16px;
+    background-color: white;
   }
 }

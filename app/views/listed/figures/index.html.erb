@@ -1,6 +1,6 @@
 <div class="container" data-controller="toggle">
   <div class="d-flex">
-    <div class="dashboard-side-menu card p-2 mt-5">
+    <div class="dashboard-side-menu card p-2 mt-5 me-3" >
       <div class="menu-item d-flex px-3 py-2 mt-3 mb-1" data-action="click->toggle#order" data-toggle-target="orderList">
         <i class="fa-solid fa-bag-shopping me-3"></i><p>Sale Orders</p>
       </div>
@@ -16,7 +16,7 @@
       <div data-toggle-target="orderButton" class="order-container">
         <%= render "order_list" %>
       </div>
-      <div data-toggle-target="productButton" class="">
+      <div data-toggle-target="productButton" class="product-container">
         <%= render "product_list" %>
       </div>
       <div data-toggle-target="reviewButton" class="">
