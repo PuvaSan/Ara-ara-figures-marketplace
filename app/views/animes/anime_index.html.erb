@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>All Anime</h1>
+  <div class="row">
+    <% @Animes.each do |anime| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <%= image_tag figure.photos.first, size: "200x200" if figure.photos.any? %>
+            <h5 class="card-title"><%= figure.name %></h5>
+            <%# maybe genre <p class="card-text">Price: <%= figure.price </p> %>
+            <%# <p class="card-text">Description: <%= figure.description </p> %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
