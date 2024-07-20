@@ -1,20 +1,27 @@
 <div class="container" data-controller="toggle">
-  <div class="row">
-    <div class="col-3 p-3">
-      <ul class="list-group flex-column mb-auto">
-        <li data-action="click->toggle#order" data-toggle-target="orderList" class="list-group-item list-group-item-action">Sale Orders</li>
-        <li data-action="click->toggle#product" data-toggle-target="productList" class="list-group-item list-group-item-action">Products</li>
-        <li data-action="click->toggle#review" data-toggle-target="reviewList" class="list-group-item list-group-item-action">Reviews</li>
-      </ul>
+  <div class="d-flex">
+    <div class="dashboard-side-menu card p-2 mt-5">
+      <div class="menu-item d-flex px-3 py-2 mt-3 mb-1" data-action="click->toggle#order" data-toggle-target="orderList">
+        <i class="fa-solid fa-bag-shopping me-3"></i><p>Sale Orders</p>
+      </div>
+      <div class="menu-item d-flex px-3 py-2 mb-1" data-action="click->toggle#product" data-toggle-target="productList">
+        <i class="fa-solid fa-tag me-3"></i><p>Products</p>
+      </div>
+      <div class="menu-item d-flex px-3 py-2 mb-1" data-action="click->toggle#review" data-toggle-target="reviewList">
+        <i class="fa-solid fa-star me-3"></i><p>Reviews</p>
+      </div>
     </div>
-    <div data-toggle-target="orderButton" class=" col-9">
-      <%= render "order_list" %>
-    </div>
-    <div data-toggle-target="productButton" class=" col-9">
-      <%= render "product_list" %>
-    </div>
-    <div data-toggle-target="reviewButton" class=" col-9">
-      <%= render "review_list" %>
+
+    <div class="dashboard-content col-9">
+      <div data-toggle-target="orderButton" class="order-container">
+        <%= render "order_list" %>
+      </div>
+      <div data-toggle-target="productButton" class="">
+        <%= render "product_list" %>
+      </div>
+      <div data-toggle-target="reviewButton" class="">
+        <%= render "review_list" %>
+      </div>
     </div>
   </div>
 </div>

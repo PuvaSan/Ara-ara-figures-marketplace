@@ -1,0 +1,27 @@
+.dashboard-side-menu {
+  width: 300px;
+  height: fit-content;
+  border-radius: 16px;
+
+  .active {
+    background-color: #CAC4D0;
+  }
+
+  div {
+    border-radius: 16px;
+
+    &:hover {
+      background-color: #ede6f4;
+    }
+  }
+}
+
+.order-container {
+  div {
+    border-radius: 16px;;
+  }
+
+  .card-title {
+    font-weight: bold;
+  }
+}
