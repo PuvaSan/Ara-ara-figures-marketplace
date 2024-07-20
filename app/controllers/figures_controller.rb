@@ -21,6 +21,19 @@ class FiguresController < ApplicationController
     end
   end
 
+  def edit
+    @figure = Figure.find(params[:id])
+  end
+
+  def update
+    @figure = Figure.find(params[:id])
+    if @figure.update(figure_params)
+      redirect_to listed_figures_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def figure_params
