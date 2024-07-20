@@ -1,6 +1,6 @@
 class AnimesController < ApplicationController
   def index
-    @animes = Animes.all
+    @animes = Anime.all
   end
 
   def show

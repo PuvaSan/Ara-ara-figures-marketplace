@@ -19,9 +19,14 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    @order = Order.find(params[:id])
+    redirect_to listed_figures_path if @order.update(order_params)
+  end
+
   private
 
   def order_params
-    params.require(:order).permit(:mode_of_delivery)
+    params.require(:order).permit(:mode_of_delivery, :status)
   end
 end
