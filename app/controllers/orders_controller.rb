@@ -21,12 +21,7 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    # raise
-    if @order.update(order_params)
-      redirect_to orders_path
-    else
-      console.log()
-    end
+    redirect_to listed_figures_path if @order.update(order_params)
   end
 
   private
