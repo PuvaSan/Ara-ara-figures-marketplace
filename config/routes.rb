@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/reviews', to: "reviews#index"
   get 'animes/autocomplete', to: 'animes#autocomplete'
 
-  namespace :purchased do
+  namespace :purchases do
     resources :figures, only: :index
     # equivalent to => get 'translator/bookings', to: 'translator/bookings#index'
   end
