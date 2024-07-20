@@ -2,9 +2,16 @@
   <% @animes.each do |anime| %>
     <%= link_to anime_path(anime), class: "text-decoration-none" do %>
       <% img = anime.photo.attached? ? cl_image_path(anime.photo.key) : image_path('logo.png') %>
-      <div class="anime-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= img %>)">
+      <div class="anime-card bg-image hover-zoom" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= img %>)" >
         <%= anime.title %>
       </div>
     <% end %>
   <% end %>
 </div>
+
+<style>
+  .anime-card:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+</style>
