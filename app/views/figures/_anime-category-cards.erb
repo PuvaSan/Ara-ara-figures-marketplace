@@ -1,7 +1,8 @@
 <div class="d-flex justify-content-between container mb-4">
   <% @animes.each do |anime| %>
-    <%= link_to anime_path(anime) do %>
-      <div class="anime-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <%= link_to anime_path(anime), class: "text-decoration-none" do %>
+      <% img = anime.photo.attached? ? cl_image_path(anime.photo.key) : image_path('logo.png') %>
+      <div class="anime-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= img %>)">
         <%= anime.title %>
       </div>
     <% end %>
