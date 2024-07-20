@@ -1,8 +1,8 @@
 <div class="container">
   <h1>New Order</h1>
     <% available_options = [] %>
-    <% available_options << "Pick Up" if @figure.pick_up %>
-    <% available_options << "Delivery" if @figure.delivery %>
+    <% available_options << ["Pick Up", "pickup"] if @figure.pick_up %>
+    <% available_options << ["Delivery", "delivery"] if @figure.delivery %>
 
     <% if @figure.orders.empty? || @figure.orders.all? { |order| order.status == "cancelled"} %>
 

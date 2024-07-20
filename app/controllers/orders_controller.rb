@@ -19,9 +19,19 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    @order = Order.find(params[:id])
+    # raise
+    if @order.update(order_params)
+      redirect_to orders_path
+    else
+      console.log()
+    end
+  end
+
   private
 
   def order_params
-    params.require(:order).permit(:mode_of_delivery)
+    params.require(:order).permit(:mode_of_delivery, :status)
   end
 end
