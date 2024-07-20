@@ -1,14 +1,23 @@
-<div class="container">
-  <h1>Reviews</h1>
-  <% @user_reviews.each do |review| %>
-    <div class="p-3 m-3 col-9 row">
-      <%= image_tag review.order.figure.photos.first, class: "col-3 rounded" if review.order.figure.photos.any? %>
-      <div class="col-6">
-        <p class="card-title">order number : <%= review.order.id %></p>
-        <p class="card-text">comment: "<%= review.comment %>"</p>
-        <p class="card-text">rating: <%= review.rating %></p>
-        <p class="card-text">buyer name: <%= review.order.buyer.username %> ID: <%= review.order.buyer_id %> </p>
+<% @user_reviews.each do |review| %>
+  <div class="card p-3 mb-3 bg-white">
+    <div class="d-flex">
+      <% review.rating.times do %>
+        <h6><i class="fa-solid fa-star me-1 mb-3"></i></h3>
+      <% end %>
+    </div>
+    <h4 class="font-weight-bold">Order#<%= review.order.id %> - <%= review.order.figure.name %></h4>
+    <p class="card-text">"<%= review.comment %>"</p>
+
+    <div class="reviewer-info d-flex">
+      <% if review.reviewer.photo.attached? %>
+        <%= cl_image_tag review.reviewer.photo.key, class: "avatar me-3" %>
+      <% else %>
+        <%= image_tag "logo.png", class: "avatar me-3" %>
+      <% end %>
+      <div>
+        <p class="text-muted m-0"><%= review.order.buyer.username %></p>
+        <p class="text-muted"><%= review.created_at.to_date %></p>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
