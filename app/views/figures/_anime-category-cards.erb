@@ -1,13 +1,8 @@
-<div class="card flex-row p-1 m-2 border-0">
+<div class="card flex-row p-1 m-1 border-0">
   <% @animes.each do |anime| %>
-    <div class="card-body mx-1 card-outline text-center p-0 pt-1 btn btn-outline-dark rounded">
+    <div class="card-body mx-1 card-outline text-center p-0 btn btn-outline-dark rounded object-fit-contain" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= anime.photo.attached? ? cl_image_path(anime.photo.key) : image_path("logo.png") %>)">
+      <img src="" class="card-img-top" alt="">
       <h2><%= anime.title %></h2>
     </div>
   <% end %>
 </div>
-
-<style>
-  .card-outline {
-    border: 1px solid black;
-  }
-</style>
