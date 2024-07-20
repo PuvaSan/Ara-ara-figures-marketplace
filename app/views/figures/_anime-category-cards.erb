@@ -1,13 +1,9 @@
-<div class="card flex-row p-1 m-2 border-0">
+<div class="d-flex justify-content-between container mb-4">
   <% @animes.each do |anime| %>
-    <div class="card-body mx-1 card-outline text-center p-0 pt-1 btn btn-outline-dark rounded">
-      <h2><%= anime.title %></h2>
-    </div>
+    <%= link_to anime_path(anime) do %>
+      <div class="anime-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= anime.title %>
+      </div>
+    <% end %>
   <% end %>
 </div>
-
-<style>
-  .card-outline {
-    border: 1px solid black;
-  }
-</style>
