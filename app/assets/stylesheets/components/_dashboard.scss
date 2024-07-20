@@ -1,14 +1,20 @@
+.dashboard-side-menu, .order-container, .product-container, .review-container {
+  .card {
+    border-radius: 12px;
+  }
+}
+
 .dashboard-side-menu {
   width: 300px;
   height: fit-content;
-  border-radius: 16px;
+  border-radius: 12px;
 
   .active {
     background-color: #CAC4D0;
   }
 
   div {
-    border-radius: 16px;
+    border-radius: 12px;
 
     &:hover {
       background-color: #ede6f4;
@@ -18,7 +24,6 @@
 
 .order-container {
   div {
-    border-radius: 16px;
     background-color: white;
   }
 
@@ -30,7 +35,7 @@
 .product-container {
   .btn {
     background-color: #65558F;
-    border-radius: 12px;
+    border-radius: 20px;
     color: white;
   }
 
@@ -48,5 +53,22 @@
 
     border-radius: 16px;
     background-color: white;
+  }
+}
+
+.review-container {
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .reviewer-info {
+    p:first-child {
+      font-weight: bold;
+    }
+  }
+
+  .fa-star {
+    color: rgb(225, 225, 54);
   }
 }
