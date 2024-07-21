@@ -1,3 +1,9 @@
+.all-figures-card {
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border-radius: 4px;
+}
+
 
 .small-card {
   display: flex;
@@ -6,6 +12,7 @@
   gap: 20px;
   max-width: 330px;
   max-height: 200px;
+
 
   .img-container {
     display: flex;
@@ -40,4 +47,16 @@
 .collapse-card {
   background-color: white;
   max-width: 330px;
+
+  .btn {
+    background-color: #7CA5C3;
+    border-radius: 20px;
+    color: white;
+    text-align: right;
+    margin: 5px;
+
+    &:hover {
+      background-color: #65558F;
+    }
+  }
 }
