@@ -12,15 +12,15 @@
       </div>
     </div>
 
-    <div class="dashboard-content col-9 mt-1">
+    <div class="dashboard-content col-7 mt-1">
       <div data-toggle-target="orderButton" class="order-container">
-        <%= render "order_list" %>
+        <%= render "order_list", orders: @order_sales %>
       </div>
       <div data-toggle-target="productButton" class="product-container">
-        <%= render "product_list" %>
+        <%= render "product_list", figures: @user_figures %>
       </div>
       <div data-toggle-target="reviewButton" class="review-container">
-        <%= render "review_list" %>
+        <%= render "review_list", reviews: @user_reviews %>
       </div>
     </div>
   </div>

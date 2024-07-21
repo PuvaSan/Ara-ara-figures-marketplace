@@ -1,6 +1,6 @@
 <%= link_to "+ Add new figure", new_figure_path, class: "btn m-3"%>
 
-<% @user_figures.each do |figure| %>
+<% figures.each do |figure| %>
   <div class="card figure-card p-3 mb-3">
     <h6><strong>Figure ID #<%= figure.id %> - <%= figure.name %></strong> <em>(<%= figure.anime.title %>)</em></h6>
     <div class="d-flex">
@@ -24,7 +24,9 @@
           <% elsif figure.orders.any? { |order| order.status == 'completed' }  %>
             <p><em>shipped</em></p>
           <% else %>
-            <%= link_to "Edit", edit_figure_path(figure), class: "btn me-3"%>
+            <% if figure.user == current_user %>
+              <%= link_to "Edit", edit_figure_path(figure), class: "btn me-3"%>
+            <% end %>
           <% end %>
         </div>
       </div>
