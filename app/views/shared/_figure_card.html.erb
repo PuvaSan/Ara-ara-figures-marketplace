@@ -1,11 +1,20 @@
 <% @figures.each do |figure| %>
-  <div class="col-md-4">
-    <div class="card hadow p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <%= image_tag figure.photos.first, class: "object-fit-scale", size: "200x200" if figure.photos.any? %>
-        <h5 class="card-title"><%= figure.name %></h5>
-        <p class="card-text">¥ <%= figure.price %></p>
-        <p class="card-text"><%= figure.description%></p>
+  <div class="all-figures-card m-3 p-0" style="max-width: 21rem;" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+    <div class="small-card">
+      <div class="">
+        <div class="small-card-text">
+          <h5 class="figure-name"><%= figure.name %></h5>
+          <p class="figure-price">¥ <%= figure.price %></p>
+        </div>
+      </div>
+      <div class="img-container">
+        <%= image_tag figure.photos.first, class: "figure-img" if figure.photos.any? %>
+      </div>
+    </div>
+    <%# collapse div below %>
+    <div class="collapse" id="collapse">
+      <div class="collapse-card">
+        <p class="description"><%= figure.description%></p>
         <% unless figure.user == current_user %>
           <%= link_to 'Place Order', new_figure_order_path(figure), class: 'btn btn-primary' %>
         <% end %>

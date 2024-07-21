@@ -1,0 +1,43 @@
+
+.small-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  gap: 20px;
+  max-width: 330px;
+  max-height: 200px;
+
+  .img-container {
+    display: flex;
+    justify-content: flex-end;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  .figure-img {
+    max-width: 200px;
+    object-fit: fit;
+  }
+
+  .small-card-text {
+    padding: 20px 0 20px 20px;
+    text-align: center;
+    min-width: 100px;
+  }
+
+  .figure-name {
+    font-weight: bold;
+  }
+
+  .figure-price {
+    text-align: right;
+  }
+
+}
+
+.collapse-card {
+  background-color: white;
+  max-width: 330px;
+}
