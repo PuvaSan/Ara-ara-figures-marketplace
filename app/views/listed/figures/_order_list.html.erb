@@ -1,12 +1,18 @@
-<% @order_sales.each do |order| %>
+<% orders.each do |order| %>
   <div class="card p-3 mb-3">
     <div class="d-flex">
       <p class="card-title flex-grow-1">Order ID: #<%= order.id %></p>
-      <% if order.status == 'pending' %>
-        <div class="d-flex">
-          <%= button_to "Complete", update_order_path(order), method: :patch, params: {order: {status: 'completed', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-primary me-3" %>
-          <%= button_to "Cancel", update_order_path(order), method: :patch, params: {order: {status: 'cancelled', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-danger" %>
-        </div>
+      <% if order.figure.user == current_user %>
+        <% if order.status == 'pending' %>
+          <div class="d-flex">
+            <%= button_to "Complete", update_order_path(order), method: :patch, params: {order: {status: 'completed', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-primary me-3" %>
+            <%= button_to "Cancel", update_order_path(order), method: :patch, params: {order: {status: 'cancelled', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-danger" %>
+          </div>
+        <% end %>
+      <% elsif order.buyer == current_user %>
+        <% if order.reviews.empty? %>
+          <%= link_to "Review", new_order_review_path(order), class: "btn btn-primary" %>
+        <% end %>
       <% end %>
     </div>
 
