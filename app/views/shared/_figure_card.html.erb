@@ -14,7 +14,7 @@
     <%# collapse div below %>
     <div class="collapse" id="collapse">
       <div class="collapse-card">
-        <p class="description"><%= figure.description%></p>
+        <p class="figure-description"><%= figure.description%></p>
         <% unless figure.user == current_user %>
           <%= link_to 'Place Order', new_figure_order_path(figure), class: 'btn btn-primary' %>
         <% end %>
