@@ -1,7 +1,7 @@
 .all-figures-card {
   box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
   background-color: white;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 
@@ -9,9 +9,16 @@
   display: flex;
   justify-content: space-between;
   background-color: white;
-  gap: 20px;
-  max-width: 330px;
-  max-height: 200px;
+  width: 330px;
+  height: 200px;
+  border-radius: 10px;
+
+  &:hover {
+    transition: 0.2s ease-out;
+    transform: translateY(-8px);
+    // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
 
 
   .img-container {
@@ -20,18 +27,24 @@
     height: 200px;
     background-size: cover;
     background-position: center;
+    border-radius: 0 10px 10px 0;
 
   }
 
   .figure-img {
     max-width: 200px;
+    height: 200px;
     object-fit: fit;
+    border-radius: 0 10px 10px 0;
+
   }
 
   .small-card-text {
     padding: 20px 0 20px 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     min-width: 100px;
+    justify-content: center;
   }
 
   .figure-name {
@@ -46,17 +59,27 @@
 
 .collapse-card {
   background-color: white;
-  max-width: 330px;
+  width: 330px;
+  border-radius: 0 0px 10px 10px;
+  padding: 10px;
+
 
   .btn {
     background-color: #7CA5C3;
     border-radius: 20px;
     color: white;
-    text-align: right;
     margin: 5px;
+    padding: 8px 16px;
 
     &:hover {
       background-color: #65558F;
     }
   }
+}
+
+.figures-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
 }
