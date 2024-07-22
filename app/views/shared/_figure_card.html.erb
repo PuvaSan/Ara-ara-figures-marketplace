@@ -15,9 +15,14 @@
     <div class="collapse" id="collapse">
       <div class="collapse-card">
         <p class="figure-description"><%= figure.description%></p>
-        <% unless figure.user == current_user %>
-          <%= link_to 'Place Order', new_figure_order_path(figure), class: 'btn btn-primary' %>
-        <% end %>
+        <div class="figure-card-bottom">
+          <% unless figure.user == current_user %>
+            <%= link_to 'Place Order', new_figure_order_path(figure), class: 'btn btn-primary' %>
+          <% else %>
+            <p class="figure-sold">Sold</p>
+          <% end %>
+          <h5 class="anime-name"><%= figure.anime.title %></h5>
+        </div>
       </div>
     </div>
   </div>

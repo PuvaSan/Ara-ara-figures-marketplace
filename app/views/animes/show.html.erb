@@ -1,8 +1,10 @@
 <div class="container">
   <div class="container mt-4">
-    <h1 class="text-center"><%= "#{@anime.title} (#{@figures.count})"%> </h1>
-    <div class="row">
-      <%= render 'shared/figure_card' %>
+    <h1 class="mb-3"><%= "#{@anime.title} (#{@figures.count})"%> </h1>
+    <div class=" mx-auto">
+      <div class="figures-container">
+        <%= render 'shared/figure_card' %>
+      </div>
     </div>
   </div>
 </div>

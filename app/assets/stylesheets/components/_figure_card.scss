@@ -63,11 +63,34 @@
   border-radius: 0 0px 10px 10px;
   padding: 10px;
 
+  .figure-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .anime-name {
+    text-align: right;
+    /* font-weight: lighter; */
+    font-size: smaller;
+    font-style: italic;
+    padding-right: 4%;
+  }
+
   .figure-description {
     font-size: 14px;
     line-height: 1.5;
     height: 100px;
     text-overflow: ellipsis;
+
+  }
+
+  .figure-sold {
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+    margin: 5px;
+    padding: 8px 16px;
   }
 
 
