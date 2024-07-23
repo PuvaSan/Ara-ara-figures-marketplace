@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   end
   resources :animes, only: [:show]
   get '/reviews', to: "reviews#index"
-  get 'animes/autocomplete', to: 'animes#autocomplete'
+  get 'search', to: 'animes#search', as: 'search'
+  get 'animes/autocomplete', to: 'animes#autocomplete', as: 'autocomplete_animes'
 
   namespace :purchased do
     resources :figures, only: :index
