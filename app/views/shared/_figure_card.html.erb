@@ -1,0 +1,33 @@
+<% @figures.each do |figure| %>
+  <div class="all-figures-card" style="max-width: 21rem;">
+    <div class="small-card" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+      <div class="">
+        <div class="small-card-text">
+          <h5 class="figure-name"><%= figure.name %></h5>
+          <p class="figure-price">¥ <%= figure.price %></p>
+        </div>
+      </div>
+      <div class="img-container">
+        <%= image_tag figure.photos.first, class: "figure-img" if figure.photos.any? %>
+      </div>
+    </div>
+    <%# collapse div below %>
+    <div class="collapse" id="collapse">
+      <div class="collapse-card">
+        <p class="figure-description"><%= figure.description%></p>
+        <div class="figure-card-bottom">
+          <% if figure.orders.any? { |order| order.status == 'completed' } %>
+            <p class="figure-sold">SOLD</p>
+          <% elsif figure.orders.any? { |order| order.status == 'pending' } %>
+            <p class="figure-hold">ON HOLD</p>
+          <% elsif figure.user == current_user %>
+            <p class="figure-owned">OWNED</p>
+          <% else %>
+            <%= link_to 'Buy Now', new_figure_order_path(figure), class: 'btn btn-primary' %>
+          <% end %>
+          <h5 class="anime-name"><%= figure.anime.title %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

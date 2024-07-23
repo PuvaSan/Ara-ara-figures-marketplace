@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .card-body {
   height: 500px;
   background-color: #FFF5E1;
@@ -25,4 +26,30 @@ body {
   width: 200px;
   border: 2px solid #000000;
   border-radius: 5px;
+=======
+.content-container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (max-width: 992px) {
+  .content-container {
+    width: 700px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (max-width: 768px) {
+  .content-container {
+    width: 600px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 576px) {
+  .content-container {
+    width: 300px;
+  }
+>>>>>>> e2c9df578e1f72893fa30f3a35da43070c0306d6
 }

@@ -1,0 +1,29 @@
+<div class="p-4">
+  <div class="d-flex">
+    <div class="dashboard-side-menu card p-2 mt-1 me-3" >
+      <div class="menu-item d-flex px-3 py-2 mt-3 mb-1" data-controller="buyer-toggle" data-action="click->buyer-toggle#toggle" id="order">
+        <i class="fa-solid fa-bag-shopping me-3"></i><p>Order History</p>
+      </div>
+      <div class="menu-item d-flex px-3 py-2 mb-1" id="product">
+        <i class="fa-solid fa-heart me-3"></i><p>Favorite Products</p>
+      </div>
+      <div class="menu-item d-flex px-3 py-2 mb-1" data-controller="buyer-toggle" data-action="click->buyer-toggle#toggle" id="review">
+        <i class="fa-solid fa-star me-3"></i><p>Reviewed Products</p>
+      </div>
+    </div>
+
+    <div class="dashboard-content col-9 mt-1">
+      <div class="order-container d-none">
+        <%= render "listed/figures/order_list", orders: @orders %>
+      </div>
+<% if false %>
+      <div class="product-container d-none">
+        <%= render "listed/figures/product_list", figures: @favorite_figures %>
+      </div>
+<% end %>
+      <div class="review-container d-none">
+        <%= render "listed/figures/review_list", reviews: @reviewed_products %>
+      </div>
+    </div>
+  </div>
+</div>

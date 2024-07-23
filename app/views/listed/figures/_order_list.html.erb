@@ -1,24 +1,27 @@
-<div class="container">
-  <h1>Orders</h1>
-  <% @order_sales.each do |order| %>
-    <div class="card p-3 m-3">
-      <div class="d-flex">
-        <p class="card-title flex-grow-1">order number : <%= order.id %></p>
+<% orders.each do |order| %>
+  <div class="card p-3 mb-3">
+    <div class="d-flex">
+      <p class="card-title flex-grow-1">Order ID: #<%= order.id %></p>
+      <% if order.figure.user == current_user %>
         <% if order.status == 'pending' %>
           <div class="d-flex">
             <%= button_to "Complete", update_order_path(order), method: :patch, params: {order: {status: 'completed', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-primary me-3" %>
             <%= button_to "Cancel", update_order_path(order), method: :patch, params: {order: {status: 'cancelled', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-danger" %>
           </div>
         <% end %>
-      </div>
-
-      <p class="card-text">buyer username: <%= order.buyer.username %> ID: <%= order.buyer.id %> </p>
-      <p class="card-text">Status: <%= order.status %></p>
-      <p class="card-text">anime figure from: <%= order.figure.anime.title %></p>
-      <p class="card-text">figure name: <%= order.figure.name %></p>
-      <p class="card-text">seller name: <%= order.figure.user.username %> ID: <%= order.figure.user.id %> </p>
-      <p class="card-text">figure price: <%= order.figure.price %></p>
-      <p class="card-text">delivery type: <%= order.mode_of_delivery %></p>
+      <% elsif order.buyer == current_user %>
+        <% if order.reviews.empty? %>
+          <%= link_to "Review", new_order_review_path(order), class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
     </div>
-  <% end %>
-</div>
+
+    <p class="card-text">buyer username: <%= order.buyer.username %> ID: <%= order.buyer.id %> </p>
+    <p class="card-text">Status: <%= order.status %></p>
+    <p class="card-text">anime figure from: <%= order.figure.anime.title %></p>
+    <p class="card-text">figure name: <%= order.figure.name %></p>
+    <p class="card-text">seller name: <%= order.figure.user.username %> ID: <%= order.figure.user.id %> </p>
+    <p class="card-text">figure price: <%= order.figure.price %></p>
+    <p class="card-text">delivery type: <%= order.mode_of_delivery %></p>
+  </div>
+<% end %>
