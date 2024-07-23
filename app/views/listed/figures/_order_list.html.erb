@@ -1,5 +1,5 @@
-<% orders.each do |order| %>
-  <div class="card mb-3">
+<% orders.each_with_index do |order, index| %>
+  <div class="card mb-3" style="height: fit-content;" data-bs-toggle="collapse" href="#collapse<%=index%>" role="button" aria-expanded="true" aria-controls="collapse<%=index%>">
     <div class="d-flex">
       <p class="card-title flex-grow-1 ps-1"><span class="weak-font">#<%= order.id %></span> - <%= order.figure.name %> <span class="status-icon"><i class="fa-solid fa-truck-fast"> </i> <%= order.status == "pending" ? "awaiting shipment" : order.status %></span></p>
       <% if order.figure.user == current_user %>
@@ -15,7 +15,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="p-3">
+    <div class="collapse multi-collapse-orders p-3" id="collapse<%=index%>">
       <p class="card-text">buyer username: <%= order.buyer.username %> ID: <%= order.buyer.id %> </p>
       <p class="card-text">Status: <%= order.status == "pending" ? "awaiting shipment" : order.status %></p>
       <p class="card-text">anime figure from: <%= order.figure.anime.title %></p>
