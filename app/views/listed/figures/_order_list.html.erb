@@ -1,12 +1,12 @@
 <% orders.each do |order| %>
-  <div class="card p-3 mb-3">
+  <div class="card mb-3">
     <div class="d-flex">
-      <p class="card-title flex-grow-1">Order ID: #<%= order.id %></p>
+      <p class="card-title flex-grow-1 ps-1"><span class="weak-font">#<%= order.id %></span> - <%= order.figure.name %> <span class="status-icon"><i class="fa-solid fa-truck-fast"> </i> <%= order.status == "pending" ? "awaiting shipment" : order.status %></span></p>
       <% if order.figure.user == current_user %>
         <% if order.status == 'pending' %>
-          <div class="d-flex">
-            <%= button_to "Complete", update_order_path(order), method: :patch, params: {order: {status: 'completed', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-primary me-3" %>
-            <%= button_to "Cancel", update_order_path(order), method: :patch, params: {order: {status: 'cancelled', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-danger" %>
+          <div class="d-flex mt-2 me-2">
+            <%= button_to "Complete", update_order_path(order), method: :patch, params: {order: {status: 'completed', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-outline-success btn-sm me-2" %>
+            <%= button_to "Cancel", update_order_path(order), method: :patch, params: {order: {status: 'cancelled', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-outline-danger btn-sm" %>
           </div>
         <% end %>
       <% elsif order.buyer == current_user %>
@@ -15,13 +15,13 @@
         <% end %>
       <% end %>
     </div>
-
-    <p class="card-text">buyer username: <%= order.buyer.username %> ID: <%= order.buyer.id %> </p>
-    <p class="card-text">Status: <%= order.status %></p>
-    <p class="card-text">anime figure from: <%= order.figure.anime.title %></p>
-    <p class="card-text">figure name: <%= order.figure.name %></p>
-    <p class="card-text">seller name: <%= order.figure.user.username %> ID: <%= order.figure.user.id %> </p>
-    <p class="card-text">figure price: <%= order.figure.price %></p>
-    <p class="card-text">delivery type: <%= order.mode_of_delivery %></p>
+    <div class="p-3">
+      <p class="card-text">buyer username: <%= order.buyer.username %> ID: <%= order.buyer.id %> </p>
+      <p class="card-text">Status: <%= order.status == "pending" ? "awaiting shipment" : order.status %></p>
+      <p class="card-text">anime figure from: <%= order.figure.anime.title %></p>
+      <p class="card-text">figure name: <%= order.figure.name %></p>
+      <p class="card-text">figure price: <%= order.figure.price %></p>
+      <p class="card-text">delivery type: <%= order.mode_of_delivery %></p>
+    </div>
   </div>
 <% end %>
