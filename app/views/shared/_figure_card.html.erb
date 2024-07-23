@@ -1,6 +1,6 @@
-<% @figures.each do |figure| %>
-  <div class="all-figures-card" style="max-width: 21rem;">
-    <div class="small-card" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+<% @figures.each_with_index do |figure, index| %>
+  <div class="all-figures-card" style="max-width: 21rem; height: fit-content;">
+    <div class="small-card" data-bs-toggle="collapse" href="#collapse<%=index%>" role="button" aria-expanded="true" aria-controls="collapse<%=index%>">
       <div class="">
         <div class="small-card-text">
           <h5 class="figure-name"><%= figure.name %></h5>
@@ -12,7 +12,7 @@
       </div>
     </div>
     <%# collapse div below %>
-    <div class="collapse" id="collapse">
+    <div class="collapse multi-collapse" id="collapse<%=index%>">
       <div class="collapse-card">
         <p class="figure-description"><%= figure.description%></p>
         <div class="figure-card-bottom">
