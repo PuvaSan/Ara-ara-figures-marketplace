@@ -1,0 +1,49 @@
+<div class="d-flex mx-4 my-5 row">
+  <div class="figure-photos col-4">
+    <div class="big-figure-img"style="height: 500px; background-image: url(<%= @figure.photos.any? ? cl_image_path(@figure.photos.first.key) : image_path('logo.png') %>)">
+    </div>
+  </div>
+
+  <div class="figure-info mx-4 col-4">
+    <h3 class="fw-bold mt-3"><%= @figure.name %></h3>
+    <div class="reviewer-info d-flex">
+      <% if @figure.user.photo.attached? %>
+        <%= cl_image_tag @figure.user.photo.key, class: "avatar me-3"%>
+      <% else %>
+        <%= image_tag "logo.png", class: "avatar me-3" %>
+      <% end %>
+      <div>
+        <p class="text-muted m-0"><%= @figure.user.username %></p>
+        <p class="text-muted"><em>Average </em><i class="fa-solid fa-star"></i>: <%= @user_rating%></p>
+      </div>
+    </div>
+    <h1 class="fw-bold">¥ <%= @figure.price %></h1>
+    <p class="text-muted"><%= @figure.description %></p>
+    <p class="m-0"><strong>Delivery options:</strong></p>
+    <% if @figure.pick_up %>
+      <p class="m-0"><i class="fa-regular fa-square-check"></i> Pick-up at <%= @figure.pick_up_location %></p>
+    <% end %>
+    <% if @figure.delivery %>
+      <p><i class="fa-regular fa-square-check"></i> Delivery</p>
+    <% end %>
+  </div>
+
+  <div class="checkout card p-4 col-3">
+    <h3 class="fw-bold mb-3">Checkout Information</h3>
+    <% available_options = [] %>
+    <% available_options << ["Pick up at #{@figure.pick_up_location}", "pickup"] if @figure.pick_up %>
+    <% available_options << ["Deliver to my address", "delivery"] if @figure.delivery %>
+
+    <%= simple_form_for [@figure, @order] do |f| %>
+      <label for="full_name">Full Name</label>
+      <input type="text" id="full_name" class="form-control mb-3" readonly value="<%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>">
+      <label for="figure_name">Figure</label>
+      <input id="figure_name" class="form-control mb-3" type="text" placeholder="<%= @figure.name %>" readonly>
+      <%= f.input :mode_of_delivery, as: :radio_buttons, collection: available_options %>
+      <%= hidden_field_tag :figure_id, @figure.id %>
+      <label for="billing">Billing/ Card info</label>
+      <input type="text-area" id="billing" class="form-control mb-3">
+      <%= f.submit 'Buy Now', class: "btn btn-primary mt-3 w-100" %>
+    <% end %>
+  </div>
+</div>
