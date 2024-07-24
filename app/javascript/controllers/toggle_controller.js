@@ -13,6 +13,8 @@ export default class extends Controller {
     this.reviewButtonTarget.classList.add("d-none");
 
     this.orderListTarget.classList.add("active");
+
+    this.updateIcon()
   }
 
   // hides other list except product list when product button is clicked
@@ -52,8 +54,13 @@ export default class extends Controller {
 
   // this toggles the chevron icon when the button is clicked on order's list cards
   toggle(event) {
-    const isExpanded = event.currentTarget.getAttribute("aria-expanded") === "true"
-    this.iconTarget.classList.toggle("fa-chevron-up", isExpanded)
-    this.iconTarget.classList.toggle("fa-chevron-down", !isExpanded)
+    const isExpanded = this.element.getAttribute("aria-expanded") === "true";
+    this.element.setAttribute("aria-expanded", !isExpanded);
+    this.updateIcon();
+  }
+
+  updateIcon() {
+    const isExpanded = this.element.getAttribute("aria-expanded") === "true";
+    this.iconTarget.classList.toggle('rotate-180', isExpanded);
   }
 }
