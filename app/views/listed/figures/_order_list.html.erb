@@ -14,6 +14,9 @@
         <%= link_to "Review", new_order_review_path(order), class: "btn btn-primary" %>
       <% end %>
     <% end %>
+    <div class="chevron-toggle">
+      <i class="fa fa-chevron-down" aria-expanded="true"></i>
+    </div>
   </div>
   <div class="collapse multi-collapse-orders p-3 bg-light" id="collapse<%=index%>">
     <p class="card-text"><i class="fa-solid fa-person"></i> <%= order.buyer.username %> #<%= order.buyer.id %> </p>
