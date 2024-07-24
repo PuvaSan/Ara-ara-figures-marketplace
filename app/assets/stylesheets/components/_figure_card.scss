@@ -19,6 +19,21 @@
     border-radius: 10px;
   }
 
+  .chevron-toggle{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 10px;
+  }
+
+  .chevron-toggle i {
+    transition: transform 0.3s;
+  }
+
+  .chevron-toggle i.rotate-180 {
+    transform: rotate(180deg);
+  }
+
 
   .img-container {
     display: flex;
