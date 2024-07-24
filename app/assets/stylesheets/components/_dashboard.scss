@@ -57,7 +57,15 @@
 
   .multi-collapse-orders {
     border-radius: 0 0px 12px 12px;
-    }
+  }
+
+  .chevron-toggle i {
+    transition: transform 0.3s;
+  }
+
+  .order-card.collapsed .chevron-toggle i {
+    transform: rotate(180deg);
+  }
 }
 
 .product-container {

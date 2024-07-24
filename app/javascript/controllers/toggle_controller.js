@@ -3,8 +3,8 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="toggle"
 export default class extends Controller {
   static targets = ["orderButton", "productButton", "reviewButton",
-                    "orderList", "productList", "reviewList"
-  ]
+                    "orderList", "productList", "reviewList", "icon"
+                    ]
 
   // this hides product and order list when page loads
   connect() {
@@ -48,5 +48,12 @@ export default class extends Controller {
     this.reviewListTarget.classList.add("active");
     this.productListTarget.classList.remove("active");
     this.orderListTarget.classList.remove("active");
+  }
+
+  // this toggles the chevron icon when the button is clicked on order's list cards
+  toggle(event) {
+    const isExpanded = event.currentTarget.getAttribute("aria-expanded") === "true"
+    this.iconTarget.classList.toggle("fa-chevron-up", isExpanded)
+    this.iconTarget.classList.toggle("fa-chevron-down", !isExpanded)
   }
 }
