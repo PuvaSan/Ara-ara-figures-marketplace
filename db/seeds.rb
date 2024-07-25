@@ -268,7 +268,7 @@ Order.all.each do |order|
       reviewer: order.buyer,
       order: order,
       rating: rand(1..5),
-      comment: ["Great buyer, would sell to again!", "Fast payment, would sell to again!", "Pleasure to deal with, would recommend!"].sample
+      comment: ["Great seller, would buy from again!", "Fast shipment, would buy from again!", "Pleasure to deal with, would recommend!"].sample
     )
   end
   # puts "#{Review.count} review"

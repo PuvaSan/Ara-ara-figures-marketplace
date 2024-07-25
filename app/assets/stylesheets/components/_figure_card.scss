@@ -1,0 +1,145 @@
+.all-figures-card {
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.small-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 330px;
+  height: 200px;
+  border-radius: 10px;
+
+  &:hover {
+    transition: 0.2s ease-out;
+    transform: translateY(-8px);
+    // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+
+  .chevron-toggle{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 10px;
+  }
+
+  .chevron-toggle i {
+    transition: transform 0.3s;
+  }
+
+  .chevron-toggle i.rotate-180 {
+    transform: rotate(180deg);
+  }
+
+
+  .img-container {
+    display: flex;
+    justify-content: flex-end;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 10px 10px 0;
+
+  }
+
+  .figure-img {
+    max-width: 200px;
+    height: 200px;
+    object-fit: fit;
+    border-radius: 0 10px 10px 0;
+
+  }
+
+  .small-card-text {
+    padding: 20px 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    justify-content: space-between;
+  }
+
+  .figure-name {
+    font-weight: bold;
+  }
+
+  .figure-price {
+    // margin-top: 25%;
+    text-align: center;
+  }
+
+}
+
+.collapse-card {
+  background-color: white;
+  width: 330px;
+  border-radius: 0 0px 10px 10px;
+  padding: 10px;
+
+  .figure-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .anime-name {
+    text-align: right;
+    /* font-weight: lighter; */
+    font-size: smaller;
+    font-style: italic;
+    padding-right: 4%;
+  }
+
+  .figure-description {
+    font-size: 14px;
+    line-height: 1.5;
+    height: 100px;
+    text-overflow: ellipsis;
+
+  }
+
+  .figure-sold {
+    background-color: red;
+    border-radius: 20px;
+    color: white;
+    margin: 5px;
+    padding: 8px 16px;
+  }
+
+  .figure-hold {
+    background-color: rgb(255, 251, 0);
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    margin: 5px;
+    padding: 8px 16px;
+  }
+
+  .figure-owned {
+    background-color: rgb(69, 212, 69);
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    margin: 5px;
+    padding: 8px 16px;
+  }
+
+  .btn {
+    background-color: #7CA5C3;
+    border-radius: 20px;
+    color: white;
+    margin: 5px;
+    padding: 8px 16px;
+
+    &:hover {
+      background-color: #65558F;
+    }
+  }
+}
+
+.figures-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}

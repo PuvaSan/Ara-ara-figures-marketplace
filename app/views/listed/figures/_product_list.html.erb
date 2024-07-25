@@ -1,18 +1,35 @@
-<div class="container">
-  <div class="d-flex">
-    <h1 class="mb-0">Products</h1>
-    <%= link_to "Add new figure", new_figure_path, class: "ms-3 p-3 btn btn-primary"%>
-  </div>
-  <% @user_figures.each do |figure| %>
-    <div class="p-3 m-3 col-9 row">
-      <%= image_tag figure.photos.first, class: "col-3 rounded" if figure.photos.any? %>
-      <div class="col-6">
-        <p class="card-title">figure number : <%= figure.id %></p>
-        <p class="card-text">anime figure from: <%= figure.anime.title %></p>
-        <p class="card-text">figure name: <%= figure.name %></p>
-        <p class="card-text">seller name: <%= figure.user.username %> ID: <%= figure.user.id %> </p>
-        <p class="card-text">figure price: <%= figure.price %></p>
+<%= link_to "+ Add new figure", new_figure_path, class: "btn m-3"%>
+
+<% figures.each do |figure| %>
+  <div class="card figure-card p-3 mb-3">
+    <h6><strong>Figure ID #<%= figure.id %> - <%= figure.name %></strong> <em>(<%= figure.anime.title %>)</em></h6>
+    <div class="d-flex">
+      <div class="image-container me-3" style="background-image: url(<%= figure.photos.any? ? cl_image_path(figure.photos.first.key) : image_path('logo.png')%>)"></div>
+      <div class="figure-info d-flex flex-column justify-content-between w-100">
+        <p class="mb-1"><%= figure.description %></p>
+        <p class="mb-1"><strong>¥</strong> <%= figure.price %></p>
+        <div class="flex-grow-1">
+          <p class="m-0"><strong>Delivery options:</strong></p>
+          <% if figure.pick_up %>
+            <p class="m-0"><i class="fa-regular fa-square-check"></i> Pick-up at <%= figure.pick_up_location %></p>
+          <% end %>
+          <% if figure.delivery %>
+            <p><i class="fa-regular fa-square-check"></i> Delivery</p>
+          <% end %>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="text-muted"><em>Posted at <%= figure.created_at %></em></p>
+          <% if figure.orders.any? { |order| order.status == 'pending' } %>
+            <p><em>awaiting shipment</em></p>
+          <% elsif figure.orders.any? { |order| order.status == 'completed' }  %>
+            <p><em>shipped</em></p>
+          <% else %>
+            <% if figure.user == current_user %>
+              <%= link_to "Edit", edit_figure_path(figure), class: "btn me-3"%>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

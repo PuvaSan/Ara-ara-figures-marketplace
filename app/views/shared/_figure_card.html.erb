@@ -1,0 +1,35 @@
+<% @figures.each_with_index do |figure, index| %>
+  <div class="all-figures-card" style="max-width: 21rem; height: fit-content;">
+    <div class="small-card" data-bs-toggle="collapse" href="#collapse<%= index %>" role="button" aria-expanded="false" aria-controls="collapse<%= index %>" data-controller="toggle" data-action="click->toggle#toggle">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="small-card-text">
+          <h5 class="figure-name"><%= figure.name %></h5>
+          <p class="figure-price">¥ <%= figure.price %></p>
+        </div>
+        <div class="chevron-toggle">
+          <i class="fa fa-chevron-up" data-toggle-target="icon"></i>
+        </div>
+      </div>
+      <div class="img-container">
+        <%= image_tag figure.photos.first, class: "figure-img" if figure.photos.any? %>
+      </div>
+    </div>
+    <div class="collapse multi-collapse" id="collapse<%= index %>">
+      <div class="collapse-card">
+        <p class="figure-description"><%= figure.description %></p>
+        <div class="figure-card-bottom">
+          <% if figure.orders.any? { |order| order.status == 'completed' } %>
+            <p class="figure-sold">SOLD</p>
+          <% elsif figure.orders.any? { |order| order.status == 'pending' } %>
+            <p class="figure-hold">ON HOLD</p>
+          <% elsif figure.user == current_user %>
+            <p class="figure-owned">OWNED</p>
+          <% else %>
+            <%= link_to 'Buy Now', new_figure_order_path(figure), class: 'btn btn-primary' %>
+          <% end %>
+          <h5 class="anime-name"><%= figure.anime.title %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

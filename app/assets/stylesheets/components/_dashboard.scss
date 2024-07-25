@@ -1,0 +1,115 @@
+.dashboard-side-menu, .order-container, .product-container, .review-container {
+  .card {
+    border-radius: 12px;
+  }
+}
+
+.dashboard-side-menu {
+  width: 250px;
+  height: fit-content;
+  border-radius: 12px;
+
+  .active {
+    background-color: #CAC4D0;
+  }
+
+  div {
+    border-radius: 12px;
+
+    &:hover {
+      background-color: #ede6f4;
+    }
+  }
+}
+
+.order-container {
+  .order-card {
+    border-radius: 12px;
+
+    .card-title {
+      font-weight: lighter;
+      font-size: larger;
+      margin-top: 7px;
+    }
+
+    .status-icon {
+      // status button like icon with color small
+      background-color: #ede6f4;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+  }
+
+  .card-title {
+    font-weight: lighter;
+    font-size: larger;
+    margin-top: 7px;
+  }
+
+  .status-icon {
+    // status button like icon with color small
+    background-color: #ede6f4;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+
+  .multi-collapse-orders {
+    border-radius: 0 0px 12px 12px;
+  }
+
+  .chevron-toggle i {
+    transition: transform 0.3s;
+  }
+
+  .order-card.collapsed .chevron-toggle i {
+    transform: rotate(180deg);
+  }
+}
+
+.product-container {
+  .btn {
+    background-color: #65558F;
+    border-radius: 20px;
+    color: white;
+  }
+
+  .figure-card {
+    .image-container {
+      min-width: 200px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .btn {
+      background-color: #7CA5C3;
+    }
+
+    border-radius: 16px;
+    background-color: white;
+  }
+}
+
+.review-container {
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .reviewer-info {
+    p:first-child {
+      font-weight: bold;
+    }
+  }
+
+  .fa-star {
+    color: rgb(225, 225, 54);
+  }
+}
+
+.weak-font {
+  font-weight: 100;
+  font-style: italic;
+}

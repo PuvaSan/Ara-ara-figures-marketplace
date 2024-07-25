@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :figures, only: [:index, :new, :create, :edit, :show] do
+  resources :figures, only: [:index, :new, :create, :edit, :update, :show] do
     resources :orders, only: [:new, :create]
   end
   resources :users, only: [:show]
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/reviews', to: "reviews#index"
   get 'animes/autocomplete', to: 'animes#autocomplete'
 
-  namespace :purchases do
+  namespace :purchased do
     resources :figures, only: :index
     # equivalent to => get 'translator/bookings', to: 'translator/bookings#index'
   end

@@ -1,28 +1,25 @@
-.card-body {
-  height: 500px;
-  background-color: #FFF5E1;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.content-container {
+  width: 80vw;
+  margin: 0 auto;
 }
 
-
-body {
-  background-color: #FF6969;
-
+/* Large devices (laptops/desktops, 992px and up) */
+@media (max-width: 992px) {
+  .content-container {
+    width: 700px;
+  }
 }
 
-.card-image-container {
-
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
+/* Medium devices (landscape tablets, 768px and up) */
+@media (max-width: 768px) {
+  .content-container {
+    width: 600px;
+  }
 }
 
-.card-image-container img {
-  height: 200px;
-  width: 200px;
-  border: 2px solid #000000;
-  border-radius: 5px;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 576px) {
+  .content-container {
+    width: 300px;
+  }
 }
