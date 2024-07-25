@@ -23,12 +23,48 @@
 }
 
 .order-container {
-  div {
-    background-color: white;
+  .order-card {
+    border-radius: 12px;
+
+    .card-title {
+      font-weight: lighter;
+      font-size: larger;
+      margin-top: 7px;
+    }
+
+    .status-icon {
+      // status button like icon with color small
+      background-color: #ede6f4;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
   }
 
   .card-title {
-    font-weight: bold;
+    font-weight: lighter;
+    font-size: larger;
+    margin-top: 7px;
+  }
+
+  .status-icon {
+    // status button like icon with color small
+    background-color: #ede6f4;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+
+  .multi-collapse-orders {
+    border-radius: 0 0px 12px 12px;
+  }
+
+  .chevron-toggle i {
+    transition: transform 0.3s;
+  }
+
+  .order-card.collapsed .chevron-toggle i {
+    transform: rotate(180deg);
   }
 }
 
@@ -71,4 +107,9 @@
   .fa-star {
     color: rgb(225, 225, 54);
   }
+}
+
+.weak-font {
+  font-weight: 100;
+  font-style: italic;
 }
