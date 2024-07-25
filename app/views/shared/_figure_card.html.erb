@@ -1,7 +1,7 @@
 <% @figures.each_with_index do |figure, index| %>
   <div class="all-figures-card" style="max-width: 21rem; height: fit-content;">
     <div class="small-card" data-bs-toggle="collapse" href="#collapse<%= index %>" role="button" aria-expanded="false" aria-controls="collapse<%= index %>" data-controller="toggle" data-action="click->toggle#toggle">
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="">
         <div class="small-card-text">
           <h5 class="figure-name"><%= figure.name %></h5>
           <p class="figure-price">¥ <%= figure.price %></p>

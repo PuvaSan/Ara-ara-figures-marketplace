@@ -1,13 +1,12 @@
 <div class="d-flex mx-4 my-5 row">
   <div class="figure-photos col-4">
-    <div class="big-figure-img"style="height: 500px; background-image: url(<%= @figure.photos.any? ? cl_image_path(@figure.photos.first.key) : image_path('logo.png') %>)">
+    <div class="big-figure-img" style="height: 500px; background-image: url(<%= @figure.photos.any? ? cl_image_path(@figure.photos.first.key) : image_path('logo.png') %>)">
     </div>
-    
 
     <% if @figure.photos.count > 1 %>
-      <div class="small-figure-imgs d-flex mt-3">
+      <div class="d-flex mt-3 justify-content-between">
         <% @figure.photos.each do |photo| %>
-          <div class="small-figure-img" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
+          <div class="small-figure-img" style="height: 150px; width: 120px; background-image: url(<%= cl_image_path(photo.key) %>)" onclick="changeBigFigureImage('<%= cl_image_path(photo.key) %>')"></div>
         <% end %>
       </div>
     <% end %>
