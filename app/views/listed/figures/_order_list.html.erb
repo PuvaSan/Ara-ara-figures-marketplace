@@ -1,12 +1,15 @@
-<% orders.each do |order| %>
-  <div class="card p-3 mb-3">
-    <div class="d-flex">
-      <p class="card-title flex-grow-1">Order ID: #<%= order.id %></p>
+<% orders.each_with_index do |order, index| %>
+  <div class="card mb-3" style="height: fit-content;">
+    <div class="order-card d-flex bg-light" data-bs-toggle="collapse" href="#collapse<%= index %>" role="button" aria-expanded="false" aria-controls="collapse<%= index %>" data-controller="toggle" data-action="click->toggle#toggle">
+      <p class="card-title flex-grow-1 ps-1">
+        <span class="weak-font">#<%= order.id %></span> - <%= order.figure.name %>
+        <span class="status-icon"><i class="fa-solid fa-truck"></i> <%= order.status == "pending" ? "awaiting shipment" : order.status %></span>
+      </p>
       <% if order.figure.user == current_user %>
         <% if order.status == 'pending' %>
-          <div class="d-flex">
-            <%= button_to "Complete", update_order_path(order), method: :patch, params: {order: {status: 'completed', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-primary me-3" %>
-            <%= button_to "Cancel", update_order_path(order), method: :patch, params: {order: {status: 'cancelled', mode_of_delivery: order.mode_of_delivery}}, class: "btn btn-danger" %>
+          <div class="d-flex mt-2 me-2">
+            <%= button_to "Complete", update_order_path(order), method: :patch, params: { order: { status: 'completed', mode_of_delivery: order.mode_of_delivery } }, class: "btn btn-outline-success btn-sm me-2" %>
+            <%= button_to "Cancel", update_order_path(order), method: :patch, params: { order: { status: 'cancelled', mode_of_delivery: order.mode_of_delivery } }, class: "btn btn-outline-danger btn-sm" %>
           </div>
         <% end %>
       <% elsif order.buyer == current_user %>
@@ -14,14 +17,20 @@
           <%= link_to "Review", new_order_review_path(order), class: "btn btn-primary" %>
         <% end %>
       <% end %>
+      <div class="chevron-toggle my-auto pe-2">
+        <i class="fa fa-chevron-up" data-toggle-target="icon"></i>
+      </div>
     </div>
-
-    <p class="card-text">buyer username: <%= order.buyer.username %> ID: <%= order.buyer.id %> </p>
-    <p class="card-text">Status: <%= order.status %></p>
-    <p class="card-text">anime figure from: <%= order.figure.anime.title %></p>
-    <p class="card-text">figure name: <%= order.figure.name %></p>
-    <p class="card-text">seller name: <%= order.figure.user.username %> ID: <%= order.figure.user.id %> </p>
-    <p class="card-text">figure price: <%= order.figure.price %></p>
-    <p class="card-text">delivery type: <%= order.mode_of_delivery %></p>
+    <div class="collapse multi-collapse-orders p-3 bg-light " id="collapse<%= index %>">
+      <p class="card-text"><i class="fa-solid fa-person"></i> <%= order.buyer.username %> #<%= order.buyer.id %> </p>
+      <p class="card-text"><i class="fa-solid fa-video"></i> <%= order.figure.anime.title %></p>
+      <p class="card-text"><i class="fa-solid fa-yen-sign"></i><%= order.figure.price %></p>
+      <p class="card-text"><i class="fa-solid fa-location-dot"></i>
+        <% if order.figure.pick_up %>
+          <%= order.figure.pick_up_location %></p>
+      <% else %>
+        <%= order.mode_of_delivery %></p>
+    <% end %>
   </div>
+</div>
 <% end %>
