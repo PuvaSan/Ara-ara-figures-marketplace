@@ -1,17 +1,27 @@
 class AnimesController < ApplicationController
+  def search
+    @animes = Anime.where('lower(title) LIKE ?', "%#{params[:query].downcase}%")
+    if @animes.any?
+      render :index
+    else
+      flash[:notice] = "No anime found"
+      redirect_to root_path
+    end
+  end
+
+  def autocomplete
+    term = params[:term].downcase
+    animes = Anime.where('lower(title) LIKE ?', "%#{term}%").pluck(:title)
+    render json: animes
+  end
+
   def index
-    @animes = Anime.all
+    # This will be used to display the search results
+    byebug
   end
 
   def show
     @anime = Anime.find(params[:id])
-    @figures = Figure.where(anime_id: @anime.id)
-  end
-
-  def autocomplete
-    term = params[:term]
-    animes = Anime.where('title LIKE ?', "%#{term}%").order(:title).limit(10).pluck(:title)
-    render json: animes
   end
 
 end

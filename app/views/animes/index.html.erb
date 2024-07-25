@@ -1,0 +1,12 @@
+<h1>Search Results</h1>
+<% if @animes.any? %>
+  <ul>
+    <% @animes.each do |anime| %>
+      <li>
+        <%= link_to anime.title, anime_path(anime) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No animes found</p>
+<% end %>
