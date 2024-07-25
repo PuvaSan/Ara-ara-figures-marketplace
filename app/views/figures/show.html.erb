@@ -2,6 +2,15 @@
   <div class="figure-photos col-4">
     <div class="big-figure-img"style="height: 500px; background-image: url(<%= @figure.photos.any? ? cl_image_path(@figure.photos.first.key) : image_path('logo.png') %>)">
     </div>
+    
+
+    <% if @figure.photos.count > 1 %>
+      <div class="small-figure-imgs d-flex mt-3">
+        <% @figure.photos.each do |photo| %>
+          <div class="small-figure-img" style="background-image: url(<%= cl_image_path(photo.key) %>)"></div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <div class="figure-info mx-4 col-4">
