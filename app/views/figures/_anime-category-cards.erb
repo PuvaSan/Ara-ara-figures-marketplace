@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between container mb-4">
+<div class="d-flex justify-content-between container my-3">
   <% @animes.each do |anime| %>
     <%= link_to anime_path(anime), class: "text-decoration-none" do %>
       <% img = anime.photo.attached? ? cl_image_path(anime.photo.key) : image_path('logo.png') %>
