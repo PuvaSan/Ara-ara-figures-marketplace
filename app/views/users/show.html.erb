@@ -1,8 +1,59 @@
-<h1>User Reviews</h1>
+<h1 class="text-center"><%= @user.first_name + " " + @user.last_name %>'s Profile</h1>
 
-<% @reviews.each do |review| %>
-  <div class="review">
-    <p><%= review.comment %></p>
-    <p>Rating: <%= review.rating %></p>
+<div class="reviewer-info">
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, class: "avatar me-3" %>
+  <% else %>
+    <div class="text-center">
+      <%= image_tag "logo.png", class: "avatar me-3", style: "width: 200px; height: 200px;" %>
+    </div>
+  <% end %>
+
+  <div class="container row bg-white border border-gray col-md-6 mx-auto">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mt-3 p-3 mb-3 rounded text-center">
+          <%= "Average user rating: " + @user_ratings.to_s %> ⭐️
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mt-3 p-3 mb-3 rounded text-center">
+          <%= "Member since: " + @user.created_at.strftime("%B %d, %Y") %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mt-3 p-3 mb-3 rounded text-center">
+          <%= "Total figures: " + @user_figures_count.to_s %>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+
+  <div class="row" style="margin-top: 40px;">
+    <% @reviews.each do |review| %>
+      <div class="col-md-4">
+        <div class="card p-3 mb-3 bg-white" style="width: 100%;">
+          <div class="d-flex justify-content-start">
+            <% review.rating.times do %>
+              <h6><i class="fa-solid fa-star me-1 mb-3"></i></h6>
+            <% end %>
+          </div>
+          <h4 class="font-weight-bold text-left"><%= review.order.figure.name %></h4>
+          <p class="card-text text-left">"<%= review.comment %>"</p>
+          <div class="figure-image" style="background-image: url('<%= cl_image_path(review.order.figure.photos.first.key) %>'); width: 200px; height: 200px; background-size: cover; float: right;"></div>
+          <div class="reviewer-info d-flex justify-content-start">
+            <% if review.reviewer.photo.attached? %>
+              <%= cl_image_tag review.reviewer.photo.key, class: "avatar me-3" %>
+            <% else %>
+              <%= image_tag "logo.png", class: "avatar me-3" %>
+            <% end %>
+            <div>
+              <p class="text-muted m-0"><%= review.order.buyer.username %></p>
+              <p class="text-muted"><%= review.created_at.to_date %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

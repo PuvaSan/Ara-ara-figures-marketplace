@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/orders', to: "orders#index"
   devise_for :users
   root to: "figures#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :figures, only: [:index, :new, :create, :edit, :update, :show] do
+  resources :figures, only: [:index, :new, :create, :edit, :show] do
     resources :orders, only: [:new, :create]
   end
   resources :users, only: [:show]
@@ -21,7 +20,7 @@ Rails.application.routes.draw do
   get '/reviews', to: "reviews#index"
   get 'animes/autocomplete', to: 'animes#autocomplete'
 
-  namespace :purchased do
+  namespace :purchases do
     resources :figures, only: :index
     # equivalent to => get 'translator/bookings', to: 'translator/bookings#index'
   end
