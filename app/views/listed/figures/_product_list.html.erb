@@ -1,5 +1,4 @@
 <%= link_to "+ Add new figure", new_figure_path, class: "btn m-3"%>
-
 <% figures.each do |figure| %>
   <div class="card figure-card p-3 mb-3">
     <h6><strong>Figure ID #<%= figure.id %> - <%= figure.name %></strong> <em>(<%= figure.anime.title %>)</em></h6>
@@ -26,6 +25,7 @@
           <% else %>
             <% if figure.user == current_user %>
               <%= link_to "Edit", edit_figure_path(figure), class: "btn me-3"%>
+              <%= link_to "Delete figure", figure_path(figure), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this figure?" }, class: "btn btn-danger me-3", style: "background-color: red;" %>
             <% end %>
           <% end %>
         </div>
