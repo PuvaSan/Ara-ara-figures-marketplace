@@ -1,0 +1,8 @@
+<h1 class="ms-5">Search Results</h1>
+<% if @animes.any? %>
+  <div class="anime-cards-container">
+    <%= render 'shared/anime-category-cards', locals: { animes: @animes } %>
+  </div>
+<% else %>
+  <p>No animes found</p>
+<% end %>
