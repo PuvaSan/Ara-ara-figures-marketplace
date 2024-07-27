@@ -6,7 +6,7 @@
     <% if @figure.photos.count > 1 %>
       <div class="d-flex mt-3 justify-content-between">
         <% @figure.photos.each do |photo| %>
-          <div class="small-figure-img" style="height: 150px; width: 120px; background-image: url(<%= cl_image_path(photo.key) %>)" onclick="changeBigFigureImage('<%= cl_image_path(photo.key) %>')"></div>
+          <div class="small-figure-img" style="height: 150px; width: 120px; background-image: url(<%= cl_image_path(photo.key) %>)" data-controller="image-toggler" data-action="click->image-toggler#changeBigImage"></div>
         <% end %>
       </div>
     <% end %>
@@ -36,7 +36,7 @@
     <% end %>
   </div>
 
-  <div class="checkout card p-4 col-3">
+  <div class="checkout card p-4 col-3" style="height: fit-content;">
     <h3 class="fw-bold mb-3">Checkout Information</h3>
     <% available_options = [] %>
     <% available_options << ["Pick up at #{@figure.pick_up_location}", "pickup"] if @figure.pick_up %>

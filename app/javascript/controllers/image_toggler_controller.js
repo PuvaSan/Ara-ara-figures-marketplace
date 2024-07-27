@@ -4,9 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
   }
-  <script>
-          function Url) {
-            var bigFigureImg = document.querySelector('.big-figure-img');
-          }bigFigureImg.style.backgroundImage = `url(${imageUrl})`;
-        </script>
+  changeBigImage(){
+    document.querySelector('.big-figure-img').style.backgroundImage = this.element.style.backgroundImage;
+  }
 }
