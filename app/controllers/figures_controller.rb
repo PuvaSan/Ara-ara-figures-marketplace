@@ -3,7 +3,7 @@ class FiguresController < ApplicationController
 
   def index
     #sort figures by created_at in descending order
-    @figures = Figure.all
+    @figures = Figure.all.order(created_at: :desc)
     @animes = Anime.all
   end
 
