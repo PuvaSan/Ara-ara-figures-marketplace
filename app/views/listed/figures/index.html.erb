@@ -1,14 +1,25 @@
 <div class="p-4" data-controller="toggle">
   <div class="d-flex">
-    <div class="dashboard-side-menu card p-2 mt-1 me-3" >
-      <div class="menu-item d-flex px-3 py-2 mt-3 mb-1" data-action="click->toggle#order" data-toggle-target="orderList">
-        <i class="fa-solid fa-bag-shopping me-3"></i><p>Sale Orders</p>
+    <div>
+      <div class="d-flex justify-content-around me-3 my-2 sb-container">
+        <%= link_to listed_figures_path, class: "text-decoration-none" do %>
+          <p class="mx-2 bg-dark text-light">Seller</p>
+        <% end %>
+        <%= link_to purchased_figures_path, class: "text-decoration-none" do %>
+          <p class="mx-2">Buyer</p>
+        <% end %>
       </div>
-      <div class="menu-item d-flex px-3 py-2 mb-1" data-action="click->toggle#product" data-toggle-target="productList">
-        <i class="fa-solid fa-tag me-3"></i><p>Products</p>
-      </div>
-      <div class="menu-item d-flex px-3 py-2 mb-1" data-action="click->toggle#review" data-toggle-target="reviewList">
-        <i class="fa-solid fa-star me-3"></i><p>Reviews</p>
+
+      <div class="dashboard-side-menu card p-2 mt-1 me-3" >
+        <div class="menu-item d-flex px-3 py-2 mt-3 mb-1" data-action="click->toggle#order" data-toggle-target="orderList">
+          <i class="fa-solid fa-bag-shopping me-3"></i><p>Sale Orders</p>
+        </div>
+        <div class="menu-item d-flex px-3 py-2 mb-1" data-action="click->toggle#product" data-toggle-target="productList">
+          <i class="fa-solid fa-tag me-3"></i><p>Products</p>
+        </div>
+        <div class="menu-item d-flex px-3 py-2 mb-1" data-action="click->toggle#review" data-toggle-target="reviewList">
+          <i class="fa-solid fa-star me-3"></i><p>Reviews</p>
+        </div>
       </div>
     </div>
 
