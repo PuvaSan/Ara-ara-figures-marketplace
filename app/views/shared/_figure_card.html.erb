@@ -25,7 +25,7 @@
           <% elsif figure.user == current_user %>
             <p class="figure-owned">OWNED</p>
           <% else %>
-            <%= link_to 'Buy Now', new_figure_order_path(figure), class: 'btn btn-primary' %>
+            <%= link_to 'Buy Now', figure_path(figure), class: 'btn btn-primary' %>
           <% end %>
           <h5 class="anime-name"><%= figure.anime.title %></h5>
         </div>

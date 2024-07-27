@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = Review.where(reviewee: @user)
+    @user_ratings = @reviews.map(&:rating).sum / @reviews.count
+    @user_figures_count = Figure.where(user: @user).count
   end
 
   def new
