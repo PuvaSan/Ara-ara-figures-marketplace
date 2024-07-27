@@ -2,7 +2,8 @@ class FiguresController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @figures = Figure.all
+    #sort figures by created_at in descending order
+    @figures = Figure.all.order(created_at: :desc)
     @animes = Anime.all
   end
 
@@ -15,7 +16,7 @@ class FiguresController < ApplicationController
     @figure.user = current_user
     if @figure.save
       # redirect_to list_path(@list)
-      redirect_to root_path
+      redirect_to listed_figures_path
     else
       render :new, status: :unprocessable_entity
     end

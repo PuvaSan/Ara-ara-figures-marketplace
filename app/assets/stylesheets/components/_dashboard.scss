@@ -112,3 +112,14 @@
   font-weight: 100;
   font-style: italic;
 }
+
+.sb-container {
+  p:hover {
+    background-color: #ede6f4;
+  }
+
+  p {
+    border-radius: 16px;
+    padding: 8px 28px;
+  }
+}

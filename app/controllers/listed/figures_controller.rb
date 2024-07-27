@@ -2,7 +2,8 @@ class Listed::FiguresController < ApplicationController
   def index
     # Figure.user_id == current_user.id
     @orders = Order.all
-    @figures = Figure.all
+    # display figures in descending created_at order
+    @figures = Figure.all.order(created_at: :desc)
 
     # collects all orders that match the current logged in user's ID for display
     @order_sales = @orders.select do |order|
