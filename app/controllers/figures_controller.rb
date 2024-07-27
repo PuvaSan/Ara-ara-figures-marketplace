@@ -42,9 +42,17 @@ class FiguresController < ApplicationController
     end
   end
 
+    def destroy
+      puts "hello world"
+      @figure = Figure.find(params[:id])
+      @figure.destroy
+      redirect_to listed_figures_path
+    end
+
   private
 
   def figure_params
     params.require(:figure).permit(:name, :description, :price, :anime_id, :pick_up, :pick_up_location, :delivery, photos: [])
   end
+
 end
