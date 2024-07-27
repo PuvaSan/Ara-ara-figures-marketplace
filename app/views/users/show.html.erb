@@ -1,13 +1,9 @@
 <h1 class="text-center"><%= @user.first_name + " " + @user.last_name %>'s Profile</h1>
 
 <div class="reviewer-info">
-  <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, class: "avatar me-3" %>
-  <% else %>
-    <div class="text-center">
-      <%= image_tag "logo.png", class: "avatar me-3", style: "width: 200px; height: 200px;" %>
-    </div>
-  <% end %>
+  <% img = @user.photo.attached? ? cl_image_path(@user.photo.key) : image_path('logo.png')%>
+  <div class="avatar mx-auto my-3" style="background-image: url('<%= img %>'); width: 200px; height: 200px; background-size: cover;"></div>
+  </div>
 
   <div class="container row bg-white border-0 col-md-6 mx-auto">
     <div class="row justify-content-center">
@@ -40,7 +36,8 @@
           </div>
           <h4 class="font-weight-bold text-left"><%= review.order.figure.name %></h4>
           <p class="card-text text-left">"<%= review.comment %>"</p>
-          <div class="figure-image" style="background-image: url('<%= cl_image_path(review.order.figure.photos.first.key) %>'); width: 200px; height: 200px; background-size: cover; float: right;"></div>
+          <% img = review.order.figure.photos.any? ? cl_image_path(review.order.figure.photos.first.key) : image_path('logo.png') %>
+          <div class="figure-image" style="background-image: url('<%= img %>'); width: 200px; height: 200px; background-size: cover; float: right;"></div>
           <div class="reviewer-info d-flex justify-content-start">
             <% if review.reviewer.photo.attached? %>
               <%= cl_image_tag review.reviewer.photo.key, class: "avatar me-3" %>

@@ -4,4 +4,3 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 // Jfor search
-import "./autocomplete";
