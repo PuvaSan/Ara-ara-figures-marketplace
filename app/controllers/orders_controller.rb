@@ -3,19 +3,20 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
-  def new
-    @order = Order.new
-    @figure = Figure.find(params[:figure_id])
-  end
+  # def new
+  #   @order = Order.new
+  #   @figure = Figure.find(params[:figure_id])
+  # end
 
   def create
     @order = Order.new(order_params)
-    @order.figure = Figure.find(params[:figure_id])
+    @figure = Figure.find(params[:figure_id])
+    @order.figure = @figure
     @order.buyer = current_user
     if @order.save
-      redirect_to root_path
+      redirect_to purchased_figures_path
     else
-      render :new, status: :unprocessable_entity
+      render 'figures/show', status: :unprocessable_entity
     end
   end
 

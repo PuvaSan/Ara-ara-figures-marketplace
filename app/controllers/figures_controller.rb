@@ -21,6 +21,13 @@ class FiguresController < ApplicationController
     end
   end
 
+  def show
+    @figure = Figure.find(params[:id])
+    review_arr = Review.where(reviewee: @figure.user)
+    @user_rating = review_arr.map {|rev| rev.rating}.sum / review_arr.count
+    @order = Order.new
+  end
+
   def edit
     @figure = Figure.find(params[:id])
   end
