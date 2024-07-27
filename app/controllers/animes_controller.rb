@@ -17,11 +17,12 @@ class AnimesController < ApplicationController
 
   def index
     # This will be used to display the search results
-    byebug
+    @animes = Anime.all
   end
 
   def show
     @anime = Anime.find(params[:id])
+    @figures = Figure.where(anime_id: @anime.id)
   end
 
 end
