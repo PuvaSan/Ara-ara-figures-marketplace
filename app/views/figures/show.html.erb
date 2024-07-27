@@ -16,9 +16,13 @@
     <h3 class="fw-bold mt-3"><%= @figure.name %></h3>
     <div class="reviewer-info d-flex">
       <% if @figure.user.photo.attached? %>
-        <%= cl_image_tag @figure.user.photo.key, class: "avatar me-3"%>
+        <%= link_to user_path(@figure.user) do %>
+          <%= cl_image_tag @figure.user.photo.key, class: "avatar me-3" %>
+        <% end %>
       <% else %>
-        <%= image_tag "logo.png", class: "avatar me-3" %>
+        <%= link_to user_path(@figure.user) do %>
+          <%= image_tag "logo.png", class: "avatar me-3" %>
+        <% end %>
       <% end %>
       <div>
         <p class="text-muted m-0"><%= @figure.user.username %></p>
