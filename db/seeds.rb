@@ -26,11 +26,11 @@ User.create!([{
   address: "Gunma"
 },
 {
-  username: "HabiOppaiKing",
+  username: "HabiPieKing",
   first_name: "Habi",
   last_name: "Ruiz",
   email: "Javierisdaman@gmail.com",
-  password: "oppai101",
+  password: "pieking101",
   bio: "Sed massa felis, ultrices sed orci in, tincidunt dignissim risus. Nullam hendrerit venenatis magna eu mattis. Nullam pharetra dui id mauris luctus, in fermentum mi finibus. Curabitur dignissim dui est, non molestie erat pellentesque quis.",
   address: "Kawasaki"
 },
